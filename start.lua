@@ -23,7 +23,9 @@ require("lazy").setup {
 	"hrsh7th/cmp-vsnip",
 	"hrsh7th/vim-vsnip",
 
-	"folke/tokyonight.nvim"
+	"folke/tokyonight.nvim",
+	"nvim-tree/nvim-tree.lua",
+	"nvim-tree/nvim-web-devicons",
 }
 
 
@@ -107,3 +109,6 @@ require("tokyonight").setup {
 	},
 }
 vim.cmd[[colorscheme tokyonight]]
+
+require("nvim-tree").setup{}
+require("nvimtree")

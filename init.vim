@@ -8,6 +8,8 @@ set ts=4
 set sw=4
 set ignorecase
 set smartcase
+set termguicolors
+let loaded_netrw = 1
 let loaded_netrwPlugin = 1
 
 let mapleader = ' '
