@@ -22,7 +22,10 @@ require("lazy").setup {
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-vsnip",
 	"hrsh7th/vim-vsnip",
+
+	"folke/tokyonight.nvim"
 }
+
 
 local cmp = require("cmp")
 
@@ -95,3 +98,12 @@ treesitter.setup {
 		additional_vim_regex_highlighting = false,
 	},
 }
+
+require("tokyonight").setup {
+	style = "storm",
+	styles = {
+		comments = { italic = false },
+		keywords = { italic = false },
+	},
+}
+vim.cmd[[colorscheme tokyonight]]
