@@ -118,6 +118,8 @@ require("tokyonight").setup {
 vim.cmd[[colorscheme tokyonight]]
 
 require("nvim-tree").setup{}
-require("nvimtree")
+
+-- user configs
+require("nvimtree_config")
 require("gitgutter_config")
 require("telescope_config")
