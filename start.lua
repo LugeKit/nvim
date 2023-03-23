@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
 	"neovim/nvim-lspconfig",
+	{ "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
 
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
@@ -79,5 +80,15 @@ local lspconfig = require("lspconfig")
 lspconfig.gopls.setup {
 	capabilities = capabilities,
 }
-
 require("lsp_config")
+
+local treesitter = require("nvim-treesitter.configs")
+treesitter.setup {
+	ensure_installed = { "c", "lua", "vim", "help", "query" },
+	sync_install = false,
+	auto_install = true,
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+}
