@@ -82,6 +82,7 @@ local lspconfig = require("lspconfig")
 lspconfig.gopls.setup {
 	capabilities = capabilities,
 }
+require'lspconfig'.golangci_lint_ls.setup{}
 require("lsp_config")
 
 local treesitter = require("nvim-treesitter.configs")
