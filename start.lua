@@ -26,6 +26,7 @@ require("lazy").setup {
 	"folke/tokyonight.nvim",
 	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons",
+	"airblade/vim-gitgutter",
 }
 
 
@@ -112,3 +113,4 @@ vim.cmd[[colorscheme tokyonight]]
 
 require("nvim-tree").setup{}
 require("nvimtree")
+require("gitgutter_config")
