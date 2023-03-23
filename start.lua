@@ -27,6 +27,12 @@ require("lazy").setup {
 	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons",
 	"airblade/vim-gitgutter",
+
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.1",
+		dependencies = { "nvim-lua/plenary.nvim" }
+	},
 }
 
 
@@ -114,3 +120,4 @@ vim.cmd[[colorscheme tokyonight]]
 require("nvim-tree").setup{}
 require("nvimtree")
 require("gitgutter_config")
+require("telescope_config")
