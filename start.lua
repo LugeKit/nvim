@@ -37,6 +37,7 @@ require("lazy").setup {
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-vsnip",
 	"hrsh7th/vim-vsnip",
+	"weilbith/nvim-lsp-smag",
 
 	"folke/tokyonight.nvim",
 	"nvim-tree/nvim-tree.lua",
