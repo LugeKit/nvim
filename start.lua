@@ -25,6 +25,7 @@ require("lazy").setup {
 	},
 
 	"williamboman/mason.nvim",
+	"mfussenegger/nvim-dap",
 
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
@@ -51,7 +52,7 @@ require("lazy").setup {
 -- user configs
 require("mason").setup {}
 require("lualine_config")
-require("cmp_lsp_config") -- all language server init here
+require("cmp_config")
 require("treesitter_config")
 require("lsp_mappings_config")
 require("lspsaga_config")
@@ -59,3 +60,4 @@ require("telescope_config")
 require("theme_config")
 require("nvimtree_config")
 require("gitgutter_config")
+require("language_config")
