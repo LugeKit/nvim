@@ -145,33 +145,9 @@ require("tokyonight").setup {
 }
 vim.cmd [[colorscheme tokyonight]]
 
-require("lualine").setup {
-	options = {
-		icons_enabled = false,
-	},
-	tabline = {
-		lualine_a = {
-			{
-				'tabs',
-				mode = 3,
-			},
-		},
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = {
-			{
-				'buffers',
-				mode = 4,
-			}
-
-		},
-	},
-}
-
 -- user configs
 require("nvimtree_config")
 require("gitgutter_config")
 require("telescope_config")
 require("lsp_config")
+require("lualine_config")
