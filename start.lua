@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -96,7 +96,34 @@ local lspconfig = require("lspconfig")
 lspconfig.gopls.setup {
 	capabilities = capabilities,
 }
-require'lspconfig'.golangci_lint_ls.setup{}
+lspconfig.golangci_lint_ls.setup {
+	capabilities = capabilities,
+}
+lspconfig.lua_ls.setup {
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				version = 'LuaJIT',
+			},
+			diagnostics = {
+				globals = { 'vim' },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
+}
+lspconfig.vimls.setup {
+	capabilities = capabilities,
+}
+lspconfig.bashls.setup {
+	capabilities = capabilities,
+}
 
 local treesitter = require("nvim-treesitter.configs")
 treesitter.setup {
@@ -116,10 +143,10 @@ require("tokyonight").setup {
 		keywords = { italic = false },
 	},
 }
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd [[colorscheme tokyonight]]
 
-require("nvim-tree").setup{}
-require("lualine").setup{
+require("nvim-tree").setup {}
+require("lualine").setup {
 	options = {
 		icons_enabled = false,
 	},
