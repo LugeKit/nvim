@@ -9,6 +9,7 @@ set sw=4
 set ignorecase
 set smartcase
 set termguicolors
+set nohlsearch
 let loaded_netrw = 1
 let loaded_netrwPlugin = 1
 
