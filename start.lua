@@ -38,6 +38,7 @@ require("lazy").setup {
 }
 
 
+
 local cmp = require("cmp")
 
 cmp.setup {
@@ -46,15 +47,16 @@ cmp.setup {
 			vim.fn["vsnip#anonymous"](args.body)
 		end,
 	},
+	preselect = cmp.PreselectMode.None,
 	window = {
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	mapping = cmp.mapping.preset.insert {
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<Tab>'] = cmp.mapping.select_next_item(),
-		['<S-Tab>'] = cmp.mapping.select_prev_item(),
+		['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select, count = 1 }),
+		['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select, count = 1 }),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm { select = true },
