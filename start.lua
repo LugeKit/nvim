@@ -145,7 +145,6 @@ require("tokyonight").setup {
 }
 vim.cmd [[colorscheme tokyonight]]
 
-require("nvim-tree").setup {}
 require("lualine").setup {
 	options = {
 		icons_enabled = false,
