@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     -- vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<C-[>', ':Telescope lsp_references<CR>', opts)
+    vim.keymap.set('n', '<C-[>', ':lua require(\'telescope.builtin\').lsp_references { show_line = false }<CR>', opts)
     vim.keymap.set('n', '<C-\\>', ':Telescope lsp_type_definitions<CR>', opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
