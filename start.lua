@@ -9,6 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
@@ -17,15 +18,13 @@ require("lazy").setup {
 
 	{
 		"glepnir/lspsaga.nvim",
-		event = "BufRead",
-		config = function()
-			require("lspsaga").setup{}
-		end,
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 			"nvim-treesitter/nvim-treesitter",
 		},
 	},
+
+	"williamboman/mason.nvim",
 
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
@@ -50,8 +49,9 @@ require("lazy").setup {
 }
 
 -- user configs
+require("mason").setup {}
 require("lualine_config")
-require("cmp_lsp_config")
+require("cmp_lsp_config") -- all language server init here
 require("treesitter_config")
 require("lsp_mappings_config")
 require("lspsaga_config")
