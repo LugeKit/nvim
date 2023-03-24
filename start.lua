@@ -50,11 +50,12 @@ require("lazy").setup {
 }
 
 -- user configs
+require("lualine_config")
 require("cmp_lsp_config")
 require("treesitter_config")
-require("lsp_config")
+require("lsp_mappings_config")
+require("lspsaga_config")
 require("telescope_config")
 require("theme_config")
 require("nvimtree_config")
 require("gitgutter_config")
-require("lualine_config")
