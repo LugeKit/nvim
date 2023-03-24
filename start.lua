@@ -59,7 +59,7 @@ cmp.setup {
 		['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select, count = 1 }),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm { select = true },
+		['<CR>'] = cmp.mapping.confirm { select = false },
 	},
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
