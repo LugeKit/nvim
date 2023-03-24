@@ -10,6 +10,7 @@ set ignorecase
 set smartcase
 set termguicolors
 set nohlsearch
+set clipboard=unnamedplus
 let loaded_netrw = 1
 let loaded_netrwPlugin = 1
 
