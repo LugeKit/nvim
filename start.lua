@@ -54,7 +54,9 @@ require("lazy").setup {
 
 -- user configs
 require("mason").setup {}
-require("neodev").setup {} -- before lspconfig
+require("neodev").setup {
+	library = { plugins = { "nvim-dap-ui" }, types = true },
+} -- before lspconfig
 require("lualine_config")
 require("cmp_config")
 require("treesitter_config")
@@ -62,6 +64,7 @@ require("lsp_mappings_config")
 require("lspsaga_config")
 require("dap_config")
 require("dap-go").setup {}
+require("dapui").setup {}
 require("telescope_config")
 require("theme_config")
 require("nvimtree_config")
