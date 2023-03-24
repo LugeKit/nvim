@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', '<C-\\>', ':Telescope lsp_type_definitions<CR>', opts)
 		vim.keymap.set('n', '<C-i>', ':Telescope lsp_implementations<CR>', opts)
 		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-		vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+		vim.keymap.set('n', '<S-k>', vim.lsp.buf.signature_help, opts)
 		vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
 		vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
 		vim.keymap.set('n', '<leader>wl', function()

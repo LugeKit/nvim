@@ -29,4 +29,7 @@ nnoremap <leader>t :tabnew<CR>
 
 nnoremap <leader><BS> :bd<CR>
 
+nnoremap <C-j> 10j
+nnoremap <C-k> 10k
+
 luafile ~/.config/nvim/start.lua
