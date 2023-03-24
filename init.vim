@@ -21,12 +21,10 @@ nnoremap <leader>4 4gt
 nnoremap <leader>5 5gt
 nnoremap <leader>6 6gt
 nnoremap <leader>7 7gt
-nnoremap <leader>t gt
-nnoremap <leader>T gT
+nnoremap <leader><Tab> gt
+nnoremap <leader><S-Tab> gT
+nnoremap <leader>t :tabnew<CR>
 
 nnoremap <leader><BS> :bd<CR>
-
-" user defined command, must begin with upper case
-command T tabnew
 
 luafile ~/.config/nvim/start.lua
