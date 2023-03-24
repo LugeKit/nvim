@@ -33,6 +33,8 @@ require("lazy").setup {
 		tag = "0.1.1",
 		dependencies = { "nvim-lua/plenary.nvim" }
 	},
+
+	"nvim-lualine/lualine.nvim"
 }
 
 
@@ -73,7 +75,7 @@ cmp.setup.filetype('gitcommit', {
 	})
 })
 
-cmp.setup.cmdline({ '/', '?' }, {
+cmp.setup.cmdline({ '', '?' }, {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 		{ name = 'buffer' },
@@ -117,6 +119,30 @@ require("tokyonight").setup {
 vim.cmd[[colorscheme tokyonight]]
 
 require("nvim-tree").setup{}
+require("lualine").setup{
+	options = {
+		icons_enabled = false,
+	},
+	tabline = {
+		lualine_a = {
+			{
+				'tabs',
+				mode = 3,
+			},
+		},
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {
+			{
+				'buffers',
+				mode = 4,
+			}
+
+		},
+	},
+}
 
 -- user configs
 require("nvimtree_config")
