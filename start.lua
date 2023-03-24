@@ -26,6 +26,7 @@ require("lazy").setup {
 
 	"williamboman/mason.nvim",
 	"mfussenegger/nvim-dap",
+	"leoluz/nvim-dap-go",
 
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
@@ -56,6 +57,8 @@ require("cmp_config")
 require("treesitter_config")
 require("lsp_mappings_config")
 require("lspsaga_config")
+require("dap_config")
+require("dap-go").setup {}
 require("telescope_config")
 require("theme_config")
 require("nvimtree_config")

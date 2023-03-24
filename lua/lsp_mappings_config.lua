@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.api.nvim_create_autocmd('BufWritePre', {
-	callback = function(ev)
+	callback = function()
 		vim.lsp.buf.format()
 	end
 })
