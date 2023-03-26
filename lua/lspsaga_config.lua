@@ -13,6 +13,10 @@ lspsaga.setup {
 			tabe = 'r',
 		},
 	},
+	diagnostic = {
+		on_insert = false,
+		on_insert_follow = false,
+	}
 }
 
 vim.keymap.set('n', '<C-]>', '<cmd>Lspsaga lsp_finder<CR>')
