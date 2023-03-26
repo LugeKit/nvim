@@ -6,7 +6,7 @@ lspconfig.gopls.setup({
 lspconfig.golangci_lint_ls.setup {
 	capabilities = capabilities,
 }
-lspconfig.lua_ls.setup ({
+lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	settings = {
 		Lua = {
@@ -32,3 +32,4 @@ lspconfig.vimls.setup({
 lspconfig.bashls.setup({
 	capabilities = capabilities,
 })
+lspconfig.clangd.setup {}
