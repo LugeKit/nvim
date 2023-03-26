@@ -1,20 +1,20 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
-lspconfig.gopls.setup {
+lspconfig.gopls.setup({
 	capabilities = capabilities,
-}
+})
 lspconfig.golangci_lint_ls.setup {
 	capabilities = capabilities,
 }
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls.setup ({
 	capabilities = capabilities,
 	settings = {
 		Lua = {
 			runtime = {
-				version = 'LuaJIT',
+				version = "LuaJIT",
 			},
 			diagnostics = {
-				globals = { 'vim' },
+				globals = { "vim" },
 			},
 			workspace = {
 				library = vim.api.nvim_get_runtime_file("", true),
@@ -25,10 +25,10 @@ lspconfig.lua_ls.setup {
 			},
 		},
 	},
-}
-lspconfig.vimls.setup {
+})
+lspconfig.vimls.setup({
 	capabilities = capabilities,
-}
-lspconfig.bashls.setup {
+})
+lspconfig.bashls.setup({
 	capabilities = capabilities,
-}
+})

@@ -12,7 +12,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup {
+require("lazy").setup({
 	"neovim/nvim-lspconfig",
 	{ "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
 	"folke/neodev.nvim",
@@ -29,6 +29,7 @@ require("lazy").setup {
 	"mfussenegger/nvim-dap",
 	"leoluz/nvim-dap-go",
 	"rcarriga/nvim-dap-ui",
+	"vim-test/vim-test",
 
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
@@ -47,25 +48,25 @@ require("lazy").setup {
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.1",
-		dependencies = { "nvim-lua/plenary.nvim" }
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
 	"nvim-lualine/lualine.nvim",
-}
+})
 
 -- user configs
-require("mason").setup {}
-require("neodev").setup {
+require("mason").setup({})
+require("neodev").setup({
 	library = { plugins = { "nvim-dap-ui" }, types = true },
-} -- before lspconfig
+}) -- before lspconfig
 require("lualine_config")
 require("cmp_config")
 require("treesitter_config")
-require("lsp_mappings_config")
+require("lsp_config")
 require("lspsaga_config")
 require("dap_config")
-require("dap-go").setup {}
-require("dapui").setup {}
+require("dap-go").setup({})
+require("dapui").setup({})
 require("telescope_config")
 require("theme_config")
 require("nvimtree_config")
