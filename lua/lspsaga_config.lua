@@ -12,6 +12,7 @@ lspsaga.setup {
 			split = 's',
 			tabnew = 't',
 			tabe = 'r',
+			quit = { 'q', '<C-c>', '<ESC>' },
 			jump_to = nil,
 		},
 	},
