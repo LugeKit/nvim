@@ -10,8 +10,6 @@ lspsaga.setup {
 		keys = {
 			vsplit = 'v',
 			split = 's',
-			tabnew = 't',
-			tabe = 'r',
 			quit = { 'q', '<C-c>', '<ESC>' },
 			jump_to = nil,
 		},
