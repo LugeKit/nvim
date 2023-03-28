@@ -57,7 +57,7 @@ require("lazy").setup({
 		"folke/which-key.nvim",
 		config = function()
 			vim.o.timeout = true
-			vim.o.timeoutlen = 300
+			vim.o.timeoutlen = 600
 			require("which-key").setup {}
 		end,
 	},
