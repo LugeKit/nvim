@@ -17,7 +17,10 @@ lspsaga.setup {
 	diagnostic = {
 		on_insert = false,
 		on_insert_follow = false,
-	}
+	},
+	lightbulb = {
+		enable_in_insert = false,
+	},
 }
 
 vim.keymap.set('n', '<C-]>', '<cmd>Lspsaga lsp_finder<CR>')
