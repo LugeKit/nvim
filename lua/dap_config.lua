@@ -9,8 +9,11 @@ local keymap = {
 		B = { "<cmd>lua require('dap').list_breakpoints()<CR>", "List Breakpoints" },
 		C = { "<cmd>lua require('dap').clear_breakpoints()<CR>", "Clear Breakpoints" },
 		q = { "<cmd>DapToggleRepl<CR>", "Toggle Repl" },
+		d = { "<cmd>lua require('dap').disconnect()<CR>", "Disconnect" },
 		x = { "<cmd>DapTerminate<CR>", "Terminate" },
 		r = { "<cmd>lua require('dap').run_to_cursor()<CR>", "Run To Cursor" },
+		e = { "<cmd>lua require('dapui').eval(vim.fn.input '[Expression] > ')<CR>", "Evaluate" },
+		h = { "<cmd>lua require('dap.ui.widgets').hover()<CR>", "Hover" },
 	},
 }
 
@@ -23,8 +26,10 @@ local wk = require("which-key")
 wk.register(keymap, { prefix = "<leader>" })
 wk.register(keymap_v, { mode = "v", prefix = "<leader>" })
 
+-- language configuration
 require("dap-go").setup({})
 
+-- ui configuration
 local dapui = require("dapui")
 dapui.setup {}
 
