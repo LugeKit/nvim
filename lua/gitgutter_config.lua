@@ -1,2 +1,10 @@
-map('n', '[h', ':GitGutterPrevHunk<CR>', { silent = true })
-map('n', ']h', ':GitGutterNextHunk<CR>', { silent = true })
+local wk = require("which-key")
+local keymap = {
+	name = "GitGutter",
+	p = { "<cmd>GitGutterPreviewHunk<CR>", "Preview Hunk" },
+	u = { "<cmd>GitGutterUndoHunk<CR>", "Undo Hunk" },
+	["]"] = { "<cmd>GitGutterNextHunk<CR>", "Next Hunk" },
+	["["] = { "<cmd>GitGutterPrevHunk<CR>", "Prev Hunk" },
+}
+
+wk.register({ h = keymap }, { prefix = "<leader>" })

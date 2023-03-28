@@ -1,8 +1,3 @@
-require("utils")
-
-map('n', '<leader>ff', ':Telescope find_files<CR>')
-map('n', '<leader>fs', ':Telescope live_grep<CR>')
-
 require('telescope').setup {
 	defaults = {
 		mappings = {
@@ -13,3 +8,12 @@ require('telescope').setup {
 		},
 	},
 }
+
+local wk = require("which-key")
+wk.register({
+	f = {
+		name = "Telescope",
+		f = { "<cmd>Telescope find_files<CR>", "Find File" },
+		s = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
+	},
+}, { prefix = "<leader>" })

@@ -38,7 +38,7 @@ require("lazy").setup({
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-vsnip",
 	"hrsh7th/vim-vsnip",
-	"weilbith/nvim-lsp-smag",
+	"weilbith/nvim-lsp-smag", -- automated tags
 
 	"folke/tokyonight.nvim",
 	"nvim-tree/nvim-tree.lua",
@@ -51,8 +51,16 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
-	"nvim-lualine/lualine.nvim",
-	"RRethy/vim-illuminate"
+	"nvim-lualine/lualine.nvim", -- status line
+	"RRethy/vim-illuminate",  -- highlight cursor word
+	{
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup {}
+		end,
+	},
 })
 
 -- user configs
@@ -74,3 +82,4 @@ require("nvimtree_config")
 require("gitgutter_config")
 require("language_config")
 require("vim_test_config")
+require("which_key_config")
