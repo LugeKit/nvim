@@ -39,10 +39,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	callback = function()
-		vim.lsp.buf.format(nil, 1000)
-	end,
-})
-
 vim.diagnostic.config({ update_in_insert = true })

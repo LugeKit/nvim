@@ -61,6 +61,8 @@ require("lazy").setup({
 			require("which-key").setup {}
 		end,
 	},
+	"nvim-lualine/lualine.nvim",
+	"jose-elias-alvarez/null-ls.nvim"
 })
 
 -- user configs
@@ -81,3 +83,4 @@ require("gitgutter_config")
 require("language_config")
 require("vim_test_config")
 require("which_key_config")
+require("null_ls_config")
