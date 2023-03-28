@@ -37,6 +37,9 @@ nnoremap <C-l> $
 vnoremap <C-h> ^
 vnoremap <C-l> $
 
+" paste in command line
+cnoremap <C-v> <C-r>"
+
 autocmd FocusGained,BufEnter * :checktime
 
 luafile ~/.config/nvim/start.lua
