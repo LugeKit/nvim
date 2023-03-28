@@ -1,6 +1,5 @@
 set wildmenu
 set mouse=a
-set autoread
 set noswapfile
 set nu
 set rnu
@@ -37,5 +36,7 @@ nnoremap <C-h> ^
 nnoremap <C-l> $
 vnoremap <C-h> ^
 vnoremap <C-l> $
+
+autocmd FocusGained,BufEnter * :checktime
 
 luafile ~/.config/nvim/start.lua
