@@ -52,6 +52,7 @@ require("lazy").setup({
 	},
 
 	"nvim-lualine/lualine.nvim",
+	"RRethy/vim-illuminate"
 })
 
 -- user configs
