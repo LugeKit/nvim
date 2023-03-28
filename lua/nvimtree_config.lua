@@ -13,9 +13,16 @@ end
 
 require("nvim-tree").setup {
 	on_attach = on_attach,
+	view = {
+		width = 60,
+		number = true,
+	},
 }
 
-require("utils")
-map("n", "<leader>n", ":NvimTreeToggle<CR>", { silent = true })
-map("n", "<leader>l", ":NvimTreeFindFile<CR>:NvimTreeFocus<CR>", { silent = true })
-map("n", "<leader>c", ":NvimTreeCollapse<CR>", { silent = true })
+local keymap = {
+	n = { "<cmd>NvimTreeToggle<CR>", "NvimTreeToggle" },
+	l = { "<cmd>NvimTreeFindFile<CR><cmd>NvimTreeToggle<CR>", "NvimTreeFocus" },
+}
+
+local wk = require("which-key")
+wk.register(keymap, { prefix = "<leader>" })
