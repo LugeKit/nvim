@@ -15,5 +15,6 @@ wk.register({
 		name = "Telescope",
 		f = { "<cmd>Telescope find_files<CR>", "Find File" },
 		s = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
+		a = { "<cmd>Telescope git_status<CR>", "Git Status" },
 	},
 }, { prefix = "<leader>" })
