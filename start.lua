@@ -65,7 +65,9 @@ require("lazy").setup({
 		end,
 	},
 	"nvim-lualine/lualine.nvim",
-	"jose-elias-alvarez/null-ls.nvim"
+	"jose-elias-alvarez/null-ls.nvim",
+
+	"jiangmiao/auto-pairs",
 })
 
 -- user configs
