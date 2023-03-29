@@ -38,6 +38,9 @@ require("lazy").setup({
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-vsnip",
 	"hrsh7th/vim-vsnip",
+
+	"ray-x/lsp_signature.nvim",
+
 	"weilbith/nvim-lsp-smag", -- automated tags
 
 	"folke/tokyonight.nvim",
@@ -84,3 +87,4 @@ require("language_config")
 require("vim_test_config")
 require("which_key_config")
 require("null_ls_config")
+require("lsp_signature_config")
