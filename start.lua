@@ -67,7 +67,7 @@ require("lazy").setup({
 	"nvim-lualine/lualine.nvim",
 	"jose-elias-alvarez/null-ls.nvim",
 
-	"jiangmiao/auto-pairs",
+	"windwp/nvim-autopairs",
 })
 
 -- user configs
@@ -90,3 +90,4 @@ require("vim_test_config")
 require("which_key_config")
 require("null_ls_config")
 require("lsp_signature_config")
+require("nvim-autopairs").setup {}
