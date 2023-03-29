@@ -1,2 +1,4 @@
 1. Workspace session
 2. Close all diagnostics inline
+3. Show hint in function arguments
+4. GoTest accept arguments
