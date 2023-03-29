@@ -10,8 +10,8 @@ lspsaga.setup {
 		keys = {
 			vsplit = 'v',
 			split = 's',
+			expand_or_jump = '<CR>',
 			quit = { 'q', '<C-c>', '<ESC>' },
-			jump_to = nil,
 		},
 	},
 	diagnostic = {
