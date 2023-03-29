@@ -38,5 +38,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- end, opts)
 	end,
 })
-
-vim.diagnostic.config({ update_in_insert = true })
