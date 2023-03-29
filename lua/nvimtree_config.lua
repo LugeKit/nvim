@@ -21,7 +21,7 @@ require("nvim-tree").setup {
 
 local keymap = {
 	n = { "<cmd>NvimTreeToggle<CR>", "NvimTreeToggle" },
-	l = { "<cmd>NvimTreeFindFile<CR><cmd>NvimTreeToggle<CR>", "NvimTreeFocus" },
+	l = { "<cmd>NvimTreeFindFile<CR><cmd>NvimTreeFocus<CR>", "NvimTreeFocus" },
 }
 
 local wk = require("which-key")
