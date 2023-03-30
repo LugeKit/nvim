@@ -35,3 +35,9 @@ vim.keymap.set('n', '<F2>', '<cmd>Lspsaga diagnostic_jump_next<CR>')
 vim.keymap.set('n', '<leader><F2>', '<cmd>Lspsaga show_buf_diagnostics<CR>')
 vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
 vim.keymap.set('n', '<leader>o', '<cmd>Lspsaga outline<CR>')
+
+local wk = require("which-key")
+wk.register({
+	y = { "<cmd>Lspsaga goto_type_definition<CR>", "Go To Type Definition"},
+	d = { "<cmd>Lspsaga goto_definition<CR>", "Go To Definition"},
+}, { prefix = "g" })
