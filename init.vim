@@ -32,10 +32,6 @@ nnoremap <C-j> 10j
 nnoremap <C-k> 10k
 vnoremap <C-j> 10j
 vnoremap <C-k> 10k
-nnoremap <C-h> ^
-nnoremap <C-l> $
-vnoremap <C-h> ^
-vnoremap <C-l> $
 
 " paste in command line
 cnoremap <C-v> <C-r>"

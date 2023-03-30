@@ -19,6 +19,7 @@ lspsaga.setup {
 		on_insert_follow = false,
 	},
 	lightbulb = {
+		enable = false,
 		enable_in_insert = false,
 	},
 	code_action = {
