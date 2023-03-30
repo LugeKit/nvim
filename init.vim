@@ -35,8 +35,6 @@ vnoremap <C-k> 10k
 
 " paste in command line
 cnoremap <C-v> <C-r>"
-cnoremap <C-j> <TAB>
-cnoremap <C-k> <C-p>
 cnoremap <C-h> <C-Left>
 cnoremap <C-l> <C-Right>
 
