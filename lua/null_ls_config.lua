@@ -3,7 +3,9 @@ local augroup = vim.api.nvim_create_augroup("LspFormat", {})
 
 null_ls.setup {
 	sources = {
-		null_ls.builtins.formatting.goimports,
+		null_ls.builtins.formatting.goimports.with{
+			extra_args = {"-format-only"},
+		},
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
