@@ -23,6 +23,7 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 			"nvim-treesitter/nvim-treesitter",
 		},
+		commit = "04617d1",
 	},
 
 	"williamboman/mason.nvim",

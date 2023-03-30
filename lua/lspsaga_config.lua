@@ -6,11 +6,12 @@ lspsaga.setup {
 		scroll_up = '<C-k>',
 	},
 	finder = {
-		max_height = 1.0,
+		max_height = 0.8,
+		force_max_height = true,
 		keys = {
 			vsplit = 'v',
 			split = 's',
-			expand_or_jump = '<CR>',
+			edit = '<CR>',
 			quit = { 'q', '<C-c>', '<ESC>' },
 		},
 	},
