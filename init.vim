@@ -10,6 +10,7 @@ set smartcase
 set termguicolors
 set nohlsearch
 set clipboard=unnamedplus
+set updatetime=200
 let loaded_netrw = 1
 let loaded_netrwPlugin = 1
 
@@ -41,6 +42,7 @@ cnoremap <C-l> <C-Right>
 " call terminal
 nnoremap <F1> <cmd>tabnew<CR><cmd>terminal<CR>A
 
-autocmd FocusGained,BufEnter * :checktime
+autocmd FocusGained,BufEnter * checktime
+autocmd BufReadPost *.log normal G
 
 luafile ~/.config/nvim/start.lua
