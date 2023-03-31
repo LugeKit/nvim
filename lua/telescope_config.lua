@@ -17,5 +17,6 @@ wk.register({
 		d = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Dynamic Symbols"},
 		s = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
 		a = { "<cmd>Telescope git_status<CR>", "Git Status" },
+        h = { "<cmd>Telescope help_tags<CR>", "Help"}
 	},
 }, { prefix = "<leader>" })

@@ -77,6 +77,7 @@ require("mason").setup({})
 require("neodev").setup({
 	library = { plugins = { "nvim-dap-ui" }, types = true },
 }) -- before lspconfig
+require("k1").setup()
 require("lualine_config")
 require("cmp_config")
 require("treesitter_config")

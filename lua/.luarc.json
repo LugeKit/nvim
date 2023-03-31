@@ -27,5 +27,10 @@
         "/Users/bytedance/.local/share/nvim/lazy/cmp-vsnip/after",
         "/Users/bytedance/.local/share/nvim/lazy/cmp-path/after",
         "${3rd}/luassert/library"
+    ],
+    "diagnostics.globals": [
+        "vim",
+        "opts",
+        "map"
     ]
 }
