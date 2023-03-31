@@ -29,8 +29,6 @@
         "${3rd}/luassert/library"
     ],
     "diagnostics.globals": [
-        "vim",
-        "opts",
-        "map"
+        "vim"
     ]
 }
