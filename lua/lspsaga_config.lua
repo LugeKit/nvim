@@ -9,8 +9,8 @@ lspsaga.setup {
 		max_height = 0.8,
 		force_max_height = true,
 		keys = {
-			vsplit = 'v',
-			split = 's',
+			vsplit = '<C-v>',
+			split = '<C-s>',
 			edit = '<CR>',
 			quit = { 'q', '<C-c>', '<ESC>' },
 		},
@@ -29,8 +29,6 @@ lspsaga.setup {
 }
 
 vim.keymap.set('n', '<C-]>', '<cmd>Lspsaga lsp_finder<CR>')
-vim.keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>')
-vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename ++project<CR>')
 vim.keymap.set('n', '<F2>', '<cmd>Lspsaga diagnostic_jump_next<CR>')
 vim.keymap.set('n', '<leader><F2>', '<cmd>Lspsaga show_buf_diagnostics<CR>')
 vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
