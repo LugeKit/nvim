@@ -38,6 +38,9 @@ cnoremap <C-v> <C-r>"
 cnoremap <C-h> <C-Left>
 cnoremap <C-l> <C-Right>
 
+" call terminal
+nnoremap <F1> <cmd>tabnew<CR><cmd>terminal<CR>A
+
 autocmd FocusGained,BufEnter * :checktime
 
 luafile ~/.config/nvim/start.lua
