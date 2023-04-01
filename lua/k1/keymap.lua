@@ -48,6 +48,7 @@ map("v", "(", "<ESC>`<v`><ESC>a)<ESC>`<i(<ESC>`>2l", opts({}))
 map("v", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts({}))
 
 map("n", "<F1>", "<cmd>tabnew<CR><cmd>terminal<CR>a", opts({ desc = "Open Terminal In New Tab" }))
+map("t", "<ESC>", "<C-\\><C-n>", opts({}))
 
 -- training: disable some keys
 map("n", "c$", "<nop>", opts({}))
