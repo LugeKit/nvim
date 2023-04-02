@@ -20,7 +20,7 @@ local map = utils.map
 local opts = utils.opts
 
 -- disable highlight with <ESC>, this is probably the best way
-map("", "<ESC>", "<ESC>:noh<CR>", opts({}))
+map("", "<ESC>", "<ESC><cmd>silent noh<CR>", opts({}))
 
 -- movements
 map("n", "<C-j>", "10j", opts({}))
@@ -46,6 +46,8 @@ map("v", '"', '<ESC>`<v`><ESC>a"<ESC>`<i"<ESC>`>2l', opts({}))
 map("v", "'", "<ESC>`<v`><ESC>a'<ESC>`<i'<ESC>`>2l", opts({}))
 map("v", "(", "<ESC>`<v`><ESC>a)<ESC>`<i(<ESC>`>2l", opts({}))
 map("v", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts({}))
+
+map("v", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
 
 map("n", "<F1>", "<cmd>tabnew<CR><cmd>terminal<CR>a", opts({ desc = "Open Terminal In New Tab" }))
 map("t", "<ESC>", "<C-\\><C-n>", opts({}))
