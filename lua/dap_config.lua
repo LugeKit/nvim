@@ -31,7 +31,7 @@ require("dap-go").setup({})
 
 -- ui configuration
 local dapui = require("dapui")
-dapui.setup {}
+dapui.setup({})
 
 local dap = require("dap")
 dap.listeners.after.event_initialized["dapui_config"] = function()

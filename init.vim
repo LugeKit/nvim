@@ -19,6 +19,8 @@ set updatetime=100
 set foldmethod=indent
 set foldlevelstart=99
 
+set guifont=Jetbrains\ Mono:h11
+
 let mapleader = ' '
 
 luafile ~/.config/nvim/start.lua
