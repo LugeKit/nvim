@@ -26,6 +26,9 @@ lspsaga.setup {
 	code_action = {
 		num_shortcut = false,
 	},
+    symbol_in_winbar = {
+        false,
+    },
 }
 
 vim.keymap.set('n', '<C-]>', '<cmd>Lspsaga lsp_finder<CR>')
