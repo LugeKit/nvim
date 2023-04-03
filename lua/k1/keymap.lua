@@ -38,9 +38,6 @@ map("c", "<C-l>", "<C-right>", opts({}))
 map("c", "<C-v>", '<C-r>"', opts({}))
 map("i", "<C-v>", '<C-r>"', opts({}))
 
--- insert helper
-map("i", "<C-e>", "<ESC>ldei", opts({}))
-
 -- surroud visual selected
 map("v", '"', '<ESC>`<v`><ESC>a"<ESC>`<i"<ESC>`>2l', opts({}))
 map("v", "'", "<ESC>`<v`><ESC>a'<ESC>`<i'<ESC>`>2l", opts({}))
