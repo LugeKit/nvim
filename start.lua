@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "neovim/nvim-lspconfig",
     { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
-    "folke/neodev.nvim",
 
     {
         "glepnir/lspsaga.nvim",
@@ -38,8 +37,7 @@ require("lazy").setup({
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip",
+    "L3MON4D3/LuaSnip",
     "ray-x/lsp_signature.nvim",
 
     "weilbith/nvim-lsp-smag", -- automated tags
@@ -74,9 +72,6 @@ require("lazy").setup({
 
 -- user configs
 require("mason").setup({})
-require("neodev").setup({
-    library = { plugins = { "nvim-dap-ui" }, types = true },
-}) -- before lspconfig
 require("k1").setup()
 require("lualine_config")
 require("cmp_config")
