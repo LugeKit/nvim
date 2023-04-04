@@ -25,6 +25,7 @@ require("lazy").setup({
         commit = "04617d1",
     },
 
+
     "williamboman/mason.nvim",
     "mfussenegger/nvim-dap",
     "leoluz/nvim-dap-go",
@@ -39,6 +40,7 @@ require("lazy").setup({
     "hrsh7th/nvim-cmp",
     "L3MON4D3/LuaSnip",
     "ray-x/lsp_signature.nvim",
+    "folke/neodev.nvim",
 
     "weilbith/nvim-lsp-smag", -- automated tags
 
@@ -72,6 +74,9 @@ require("lazy").setup({
 
 -- user configs
 require("mason").setup({})
+require("neodev").setup({
+    library = { plugins = { "nvim-dap-ui" }, types = true },
+}) -- before lspconfig
 require("k1").setup()
 require("lualine_config")
 require("cmp_config")
