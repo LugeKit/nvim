@@ -18,6 +18,7 @@ set clipboard=unnamedplus
 set updatetime=100
 set foldmethod=indent
 set foldlevelstart=99
+set signcolumn=yes
 
 set guifont=Jetbrains\ Mono:h11
 
