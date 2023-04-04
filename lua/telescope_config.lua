@@ -34,11 +34,11 @@ wk.register({
 	f = {
 		name = "Telescope",
 		f = { "<cmd>Telescope find_files<CR>", "Find File" },
-		d = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Dynamic Symbols" },
-		s = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
-		a = { "<cmd>Telescope git_status<CR>", "Git Status" },
-		h = { "<cmd>Telescope help_tags<CR>", "Help" },
-		S = { call_with_glob(live_grep_glob), "Live Grep(Glob)" },
 		F = { call_with_glob(find_files_glob), "Find File(Glob)" },
+		d = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
+		D = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Dynamic Symbols" },
+		s = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
+		S = { call_with_glob(live_grep_glob), "Live Grep(Glob)" },
+		a = { "<cmd>Telescope git_status<CR>", "Git Status" },
 	},
 }, { prefix = "<leader>" })
