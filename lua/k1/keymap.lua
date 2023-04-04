@@ -1,18 +1,18 @@
 local wk = require("which-key")
 wk.register({
-    ["1"] = { "1gt", "Tab 1" },
-    ["2"] = { "2gt", "Tab 2" },
-    ["3"] = { "3gt", "Tab 3" },
-    ["4"] = { "4gt", "Tab 4" },
-    ["5"] = { "5gt", "Tab 5" },
-    ["6"] = { "6gt", "Tab 6" },
-    ["7"] = { "7gt", "Tab 7" },
-    ["<TAB>"] = { "gt", "Next Tab" },
-    ["<S-TAB>"] = { "gT", "Previous Tab" },
-    t = { "<cmd>tabnew<CR>", "New Tab" },
-    ["<BS>"] = { "<cmd>bd<CR>", "Delete Current Buffer" },
+	["1"] = { "1gt", "Tab 1" },
+	["2"] = { "2gt", "Tab 2" },
+	["3"] = { "3gt", "Tab 3" },
+	["4"] = { "4gt", "Tab 4" },
+	["5"] = { "5gt", "Tab 5" },
+	["6"] = { "6gt", "Tab 6" },
+	["7"] = { "7gt", "Tab 7" },
+	["<TAB>"] = { "gt", "Next Tab" },
+	["<S-TAB>"] = { "gT", "Previous Tab" },
+	t = { "<cmd>tabnew<CR>", "New Tab" },
+	["<BS>"] = { "<cmd>bd<CR>", "Delete Current Buffer" },
 }, {
-    prefix = "<leader>",
+	prefix = "<leader>",
 })
 
 local utils = require("k1.utils")

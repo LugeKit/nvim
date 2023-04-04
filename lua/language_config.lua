@@ -32,6 +32,6 @@ lspconfig.vimls.setup({
 lspconfig.bashls.setup({
 	capabilities = capabilities,
 })
-lspconfig.clangd.setup {
+lspconfig.clangd.setup({
 	capabilities = capabilities,
-}
+})

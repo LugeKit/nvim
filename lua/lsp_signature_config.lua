@@ -1,5 +1,5 @@
 local lsp_signature = require("lsp_signature")
-lsp_signature.setup {
+lsp_signature.setup({
 	bind = true,
 	doc_lines = 0,
 	handler_opts = {
@@ -7,5 +7,4 @@ lsp_signature.setup {
 	},
 	hint_enable = false,
 	toggle_key = "<C-k>",
-}
-
+})

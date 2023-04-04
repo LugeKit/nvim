@@ -1,11 +1,11 @@
-require("lualine").setup {
+require("lualine").setup({
 	options = {
 		icons_enabled = false,
 	},
 	tabline = {
 		lualine_a = {
 			{
-				'tabs',
+				"tabs",
 				mode = 3,
 			},
 		},
@@ -15,4 +15,4 @@ require("lualine").setup {
 		lualine_y = {},
 		lualine_z = {},
 	},
-}
+})
