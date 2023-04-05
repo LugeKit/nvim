@@ -22,7 +22,6 @@ function MappingHelper:activate()
   for _, value in ipairs(self.mappings) do
     util.map(value[1], value[2], value[3], value[4])
   end
-  util.inspect(self)
 end
 
 function MappingHelper:restore()
@@ -32,14 +31,13 @@ function MappingHelper:restore()
     util.restore_mappings(mode, saved)
   end
   self.saved_mappings = {}
-  util.inspect(self)
 end
 
 function MappingHelper:toggle()
   if self.enabled then
-    self.restore(self)
+    self:restore()
   else
-    self.activate(self)
+    self:activate()
   end
 end
 
@@ -59,7 +57,6 @@ local function new_mappings(mappings)
     m.mappings[index] = mapping
   end
 
-  util.inspect(m)
   return m
 end
 

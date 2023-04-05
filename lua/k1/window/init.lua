@@ -1,30 +1,18 @@
 local util = require("k1.util")
+local mapping_helper = require("k1.mapping_helper")
 
-local window_resize_mode_enabled = false
-local arrow_mappings = {}
-local function reset_keys()
-  util.restore_mappings("n", arrow_mappings)
-  arrow_mappings = {}
-end
-
-local function resize_with_arrow()
-  arrow_mappings = util.save_mappings("n", { "<Up>", "<Down>", "<Left>", "<Right>" }, true)
-  util.map("n", "<Up>", "<C-w>+", {})
-  util.map("n", "<Down>", "<C-w>-", {})
-  util.map("n", "<Left>", "<C-w><", {})
-  util.map("n", "<Right>", "<C-w>>", {})
-end
+local key_storage = mapping_helper.new_mappings({
+  { "n", "k", "<C-w>+", util.opts({}) },
+  { "n", "j", "<C-w>-", util.opts({}) },
+  { "n", "h", "<C-w><", util.opts({}) },
+  { "n", "l", "<C-w>>", util.opts({}) },
+})
 
 local function toggle_window_resize_mode()
-  if not window_resize_mode_enabled then
-    window_resize_mode_enabled = true
-    resize_with_arrow()
-  else
-    window_resize_mode_enabled = false
-    reset_keys()
-  end
+  key_storage:toggle()
 end
 
+---@diagnostic disable-next-line: lowercase-global
 window = {
   toggle_window_resize_mode = toggle_window_resize_mode,
 }
