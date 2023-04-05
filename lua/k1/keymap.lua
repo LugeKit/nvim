@@ -1,6 +1,7 @@
 local wk = require("which-key")
 local util = require("k1.util")
 local window = require("k1.window")
+local mapping_helper = require("k1.mapping_helper")
 
 wk.register({
   ["1"] = { "1gt", "Tab 1" },

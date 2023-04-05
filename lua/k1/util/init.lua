@@ -48,6 +48,11 @@ local function save_mappings(mode, keys, global)
   return mappings
 end
 
+local function inspect(arg)
+  print(vim.inspect(arg))
+  vim.cmd([[messages]])
+end
+
 util = {
   map = map,
   unmap = unmap,
@@ -55,6 +60,7 @@ util = {
   opts = opts,
   restore_mappings = restore_mappings,
   save_mappings = save_mappings,
+  inspect = inspect,
 }
 
 return util
