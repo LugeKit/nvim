@@ -1,22 +1,22 @@
-require("k1.util")
-local M = {}
+local Term = {}
 
-vim.g.k1_toggle_term = -1
-function M.toggle_term()
-	if vim.g.k1_toggle_term == -1 then
+local toggle_term_enabled = true
+local toggle_term_buffer_id = -1
+function Term.toggle_term()
+	if !toggle_term_enabled then
 		vim.cmd([[
         tabnew
         terminal
         normal! a
         ]])
-		vim.g.k1_toggle_term = vim.api.nvim_get_current_buf()
+		toggle_term_buffer_id = vim.api.nvim_get_current_buf()
 	end
 end
 
 local function isTermBufferExist()
-	-- if vim.g.k1_toggle_term == -1 then
-	--     return false
-	-- end
+  if !toggle_term_enabled then
+    return false
+  end
 
 	local buf_list = vim.api.nvim_list_bufs()
 	local buf_names = {}
@@ -28,14 +28,4 @@ local function isTermBufferExist()
 	vim.print(vim.inspect(buf_names))
 end
 
--- test helper
-map(
-	"n",
-	"<leader>kkk",
-	"",
-	opts({
-		callback = isTermBufferExist,
-	})
-)
-
-return M
+return Term

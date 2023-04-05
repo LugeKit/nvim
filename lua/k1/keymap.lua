@@ -1,4 +1,3 @@
-require("k1.util")
 local wk = require("which-key")
 wk.register({
 	["1"] = { "1gt", "Tab 1" },
@@ -15,6 +14,10 @@ wk.register({
 }, {
 	prefix = "<leader>",
 })
+
+local util = require("k1.util")
+local map = util.map
+local opts = util.opts
 
 -- disable highlight with <ESC>, this is probably the best way
 map("", "<ESC>", "<ESC><cmd>silent noh<CR>", opts({}))

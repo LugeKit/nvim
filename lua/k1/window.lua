@@ -1,29 +1,29 @@
-require("k1.util")
-M = {}
-local window_resize_mode_enabled = 0
+Window = {}
+local util = require("k1.util")
+local window_resize_mode_enabled = false
+local arrow_mappings = {}
 
 local function reset_keys()
-	unmap("n", "<Up>")
-	unmap("n", "<Down>")
-	unmap("n", "<Left>")
-	unmap("n", "<Right>")
+	util.restore_mappings("n", arrow_mappings)
+	arrow_mappings = {}
 end
 
 local function resize_with_arrow()
-	map("n", "<Up>", "<C-w>+", {})
-	map("n", "<Down>", "<C-w>-", {})
-	map("n", "<Left>", "<C-w><", {})
-	map("n", "<Right>", "<C-w>>", {})
+	arrow_mappings = util.save_mappings("n", { "<Up>", "<Down>", "<Left>", "<Right>" }, true)
+	util.map("n", "<Up>", "<C-w>+", {})
+	util.map("n", "<Down>", "<C-w>-", {})
+	util.map("n", "<Left>", "<C-w><", {})
+	util.map("n", "<Right>", "<C-w>>", {})
 end
 
-function M.toggle_window_resize_mode()
-	if window_resize_mode_enabled == 1 then
-		window_resize_mode_enabled = 0
-		reset_keys()
-	else
-		window_resize_mode_enabled = 1
+function Window.toggle_window_resize_mode()
+	if not window_resize_mode_enabled then
+		window_resize_mode_enabled = true
 		resize_with_arrow()
+	else
+		window_resize_mode_enabled = false
+		reset_keys()
 	end
 end
 
-return M
+return Window
