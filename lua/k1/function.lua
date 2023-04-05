@@ -1,7 +1,4 @@
-local utils = require("k1.utils")
-local map = utils.map
-local opts = utils.opts
-
+require("k1.util")
 local M = {}
 
 vim.g.k1_toggle_term = -1

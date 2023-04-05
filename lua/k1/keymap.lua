@@ -1,3 +1,4 @@
+require("k1.util")
 local wk = require("which-key")
 wk.register({
 	["1"] = { "1gt", "Tab 1" },
@@ -14,10 +15,6 @@ wk.register({
 }, {
 	prefix = "<leader>",
 })
-
-local utils = require("k1.utils")
-local map = utils.map
-local opts = utils.opts
 
 -- disable highlight with <ESC>, this is probably the best way
 map("", "<ESC>", "<ESC><cmd>silent noh<CR>", opts({}))
@@ -48,3 +45,17 @@ map("v", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
 
 map("n", "<F1>", "<cmd>tabnew<CR><cmd>terminal<CR>a", opts({ desc = "Open Terminal In New Tab" }))
 map("t", "<ESC>", "<C-\\><C-n>", opts({}))
+
+map("n", "<C-w>u", "<C-w>p<C-u><C-w>p", opts({ desc = "Scroll Previous Window Up" }))
+map("n", "<C-w>d", "<C-w>p<C-d><C-w>p", opts({ desc = "Scroll Previous Window Down" }))
+
+local window = require("k1.window")
+map(
+	"n",
+	"<leader>W",
+	"",
+	opts({
+		desc = "Toggle Window Mode",
+		callback = window.toggle_window_resize_mode,
+	})
+)
