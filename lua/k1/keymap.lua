@@ -1,18 +1,18 @@
 local wk = require("which-key")
 wk.register({
-	["1"] = { "1gt", "Tab 1" },
-	["2"] = { "2gt", "Tab 2" },
-	["3"] = { "3gt", "Tab 3" },
-	["4"] = { "4gt", "Tab 4" },
-	["5"] = { "5gt", "Tab 5" },
-	["6"] = { "6gt", "Tab 6" },
-	["7"] = { "7gt", "Tab 7" },
-	["<TAB>"] = { "gt", "Next Tab" },
-	["<S-TAB>"] = { "gT", "Previous Tab" },
-	t = { "<cmd>tabnew<CR>", "New Tab" },
-	["<BS>"] = { "<cmd>bd<CR>", "Delete Current Buffer" },
+  ["1"] = { "1gt", "Tab 1" },
+  ["2"] = { "2gt", "Tab 2" },
+  ["3"] = { "3gt", "Tab 3" },
+  ["4"] = { "4gt", "Tab 4" },
+  ["5"] = { "5gt", "Tab 5" },
+  ["6"] = { "6gt", "Tab 6" },
+  ["7"] = { "7gt", "Tab 7" },
+  ["<TAB>"] = { "gt", "Next Tab" },
+  ["<S-TAB>"] = { "gT", "Previous Tab" },
+  t = { "<cmd>tabnew<CR>", "New Tab" },
+  ["<BS>"] = { "<cmd>bd<CR>", "Delete Current Buffer" },
 }, {
-	prefix = "<leader>",
+  prefix = "<leader>",
 })
 
 local util = require("k1.util")
@@ -54,11 +54,11 @@ map("n", "<C-w>d", "<C-w>p<C-d><C-w>p", opts({ desc = "Scroll Previous Window Do
 
 local window = require("k1.window")
 map(
-	"n",
-	"<leader>W",
-	"",
-	opts({
-		desc = "Toggle Window Mode",
-		callback = window.toggle_window_resize_mode,
-	})
+  "n",
+  "<leader>W",
+  "",
+  opts({
+    desc = "Toggle Window Mode",
+    callback = window.toggle_window_resize_mode,
+  })
 )
