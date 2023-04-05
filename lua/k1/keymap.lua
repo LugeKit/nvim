@@ -1,4 +1,7 @@
 local wk = require("which-key")
+local util = require("k1.util")
+local window = require("k1.window")
+
 wk.register({
   ["1"] = { "1gt", "Tab 1" },
   ["2"] = { "2gt", "Tab 2" },
@@ -15,7 +18,6 @@ wk.register({
   prefix = "<leader>",
 })
 
-local util = require("k1.util")
 local map = util.map
 local opts = util.opts
 
@@ -52,7 +54,6 @@ map("t", "<ESC>", "<C-\\><C-n>", opts({}))
 map("n", "<C-w>u", "<C-w>p<C-u><C-w>p", opts({ desc = "Scroll Previous Window Up" }))
 map("n", "<C-w>d", "<C-w>p<C-d><C-w>p", opts({ desc = "Scroll Previous Window Down" }))
 
-local window = require("k1.window")
 map(
   "n",
   "<leader>W",
