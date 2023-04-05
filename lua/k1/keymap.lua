@@ -57,7 +57,7 @@ map("n", "<C-w>d", "<C-w>p<C-d><C-w>p", opts({ desc = "Scroll Previous Window Do
 
 map(
   "n",
-  "<leader>W",
+  "<leader>w",
   "",
   opts({
     desc = "Toggle Window Mode",
