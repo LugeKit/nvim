@@ -5,7 +5,7 @@ local unmap_buffer = vim.api.nvim_buf_del_keymap
 
 --- @param opt? table<string, any>
 local function opts(opt)
-  local _opt = { noremap = true }
+  local _opt = { noremap = true, nowait = true, silent = true }
   return vim.tbl_extend("keep", opt, _opt)
 end
 
@@ -53,6 +53,7 @@ local function inspect(arg)
   vim.cmd([[messages]])
 end
 
+---@diagnostic disable-next-line: lowercase-global
 util = {
   map = map,
   unmap = unmap,
