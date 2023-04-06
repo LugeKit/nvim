@@ -92,6 +92,9 @@ require("lazy").setup({
 
   -- pair helper, auto complete pairs
   "windwp/nvim-autopairs",
+
+  -- ui enhancement
+  "stevearc/dressing.nvim",
 })
 
 -- user configs
@@ -112,3 +115,4 @@ require("null_ls_config")
 require("nvim-autopairs").setup({})
 require("treesitter_config")
 require("lsp_config")
+require("dressing_config")

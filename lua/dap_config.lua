@@ -1,8 +1,7 @@
 local dapui = require("dapui")
 local wk = require("which-key")
 local dap = require("dap")
-local util = require("k1.util")
-local mapping_helper = require("k1.mapping_helper")
+
 -- language configuration
 require("dap-go").setup({})
 
@@ -30,6 +29,31 @@ local function reset_current_layout()
   end
 end
 
+---@param prompt string
+---@param callback function ((string|nil) -> ())
+local function require_input(prompt, callback)
+  return vim.ui.input({
+    prompt = prompt,
+  }, callback)
+end
+
+local function dapui_eval()
+  require_input("Evaluate", function(input)
+    if input and string.len(input) > 0 then
+      dapui.eval(input)
+    end
+  end)
+end
+
+local function dapui_watch_add()
+  require_input("Watch", function(input)
+    if input and string.len(input) > 0 then
+      dapui.elements.watches.add(input)
+    end
+  end)
+end
+
+
 local keymap = {
   d = {
     name = "Debug",
@@ -46,12 +70,9 @@ local keymap = {
     l = { "<cmd>lua require('dapui').float_element('breakpoints', { enter = true })<CR>", "Breakpoints List" },
     D = { "<cmd>lua require('dap').clear_breakpoints()<CR>", "Clear Breakpoints" },
     x = { "<cmd>DapTerminate<CR>", "Terminate" },
-    e = { "<cmd>lua require('dapui').eval(vim.fn.input '[Expression] > ', { enter = true })<CR>", "Evaluate" },
+    e = { dapui_eval, "Evaluate" },
     w = { "<cmd>lua require('dapui').elements.watches.add(vim.fn.expand '<cword>')<CR>", "Watches Add" },
-    W = {
-      "<cmd>lua require('dapui').elements.watches.add(vim.fn.input '[Watch] > ', { enter = true })<CR>",
-      "Watches Add(Input)",
-    },
+    W = { dapui_watch_add, "Watches Add(Input)" },
     k = { "<cmd>lua require('dap.ui.widgets').hover()<CR>", "Hover" },
     ["1"] = { open_target_layout_only(1), "Open Dapui Layout 1" },
     ["2"] = { open_target_layout_only(2), "Open Dapui Layout 2" },
