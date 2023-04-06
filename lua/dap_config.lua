@@ -5,6 +5,7 @@ local util = require("k1.util")
 
 -- language configuration
 require("dap-go").setup({})
+require("dapui_config")
 
 local current_layout_id = 0
 local function open_target_layout_only(layout_id)
@@ -30,22 +31,15 @@ local function reset_current_layout()
   end
 end
 
-local function dapui_eval()
-  util.require_input_with_ui("Evaluate", function(input)
-    if input and string.len(input) > 0 then
-      dapui.eval(input)
-    end
-  end)
+local function dapui_action(prompt, callback)
+  return function()
+    util.require_input_with_ui(prompt, function(input)
+      if input and string.len(input) > 0 then
+        callback(input)
+      end
+    end)
+  end
 end
-
-local function dapui_watch_add()
-  util.require_input_with_ui("Watch", function(input)
-    if input and string.len(input) > 0 then
-      dapui.elements.watches.add(input)
-    end
-  end)
-end
-
 
 local keymap = {
   d = {
@@ -56,16 +50,13 @@ local keymap = {
     o = { "<cmd>DapStepOut<CR>", "Step Out" },
     r = { "<cmd>lua require('dap').run_to_cursor()<CR>", "Run To Cursor" },
     b = { "<cmd>DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
-    B = {
-      "<cmd>lua require('dap').toggle_breakpoint(vim.fn.input '[Condition] > ')<CR>",
-      "Toggle Breakpoint(Condition)",
-    },
+    B = { dapui_action("Breakpoint Condition", dap.toggle_breakpoint), "Toggle Breakpoint(Condition)" },
     l = { "<cmd>lua require('dapui').float_element('breakpoints', { enter = true })<CR>", "Breakpoints List" },
     D = { "<cmd>lua require('dap').clear_breakpoints()<CR>", "Clear Breakpoints" },
     x = { "<cmd>DapTerminate<CR>", "Terminate" },
-    e = { dapui_eval, "Evaluate" },
+    e = { dapui_action("Evaluate", dapui.eval), "Evaluate" },
     w = { "<cmd>lua require('dapui').elements.watches.add(vim.fn.expand '<cword>')<CR>", "Watches Add" },
-    W = { dapui_watch_add, "Watches Add(Input)" },
+    W = { dapui_action("Watch", dapui.elements.watches.add), "Watches Add(Input)" },
     k = { "<cmd>lua require('dap.ui.widgets').hover()<CR>", "Hover" },
     ["1"] = { open_target_layout_only(1), "Open Dapui Layout 1" },
     ["2"] = { open_target_layout_only(2), "Open Dapui Layout 2" },
@@ -143,60 +134,6 @@ wk.register(keymap_v, { mode = "v", prefix = "<leader>" })
 --   },
 -- }
 -- local keymap_storage = mapping_helper.new_mappings(keymap_k1)
-
--- ui configuration
-dapui.setup({
-  floating = {
-    border = "single",
-    mappings = {
-      close = { "q", "<C-c>", "<Esc>" },
-    },
-  },
-  layouts = {
-    {
-      elements = {
-        {
-          id = "scopes",
-          size = 0.5,
-        },
-        {
-          id = "watches",
-          size = 0.5,
-        },
-      },
-      position = "left",
-      size = 50,
-    },
-    {
-      elements = {
-        {
-          id = "repl",
-          size = 0.5,
-        },
-        {
-          id = "console",
-          size = 0.5,
-        },
-      },
-      position = "left",
-      size = 50,
-    },
-    {
-      elements = {
-        {
-          id = "stack",
-          size = 0.5,
-        },
-        {
-          id = "breakpoints",
-          size = 0.5,
-        },
-      },
-      position = "left",
-      size = 50,
-    },
-  },
-})
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   current_layout_id = 1
