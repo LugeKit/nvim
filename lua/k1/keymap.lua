@@ -1,7 +1,6 @@
 local wk = require("which-key")
 local util = require("k1.util")
 local window = require("k1.window")
-local mapping_helper = require("k1.mapping_helper")
 
 wk.register({
   ["1"] = { "1gt", "Tab 1" },
@@ -48,13 +47,11 @@ map("v", "(", "<ESC>`<v`><ESC>a)<ESC>`<i(<ESC>`>2l", opts({}))
 map("v", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts({}))
 
 map("v", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
-
-map("n", "<F1>", "<cmd>tabnew<CR><cmd>terminal<CR>a", opts({ desc = "Open Terminal In New Tab" }))
+-- <ESC> in tmode to nmode
 map("t", "<ESC>", "<C-\\><C-n>", opts({}))
 
-map("n", "<C-w>u", "<C-w>p<C-u><C-w>p", opts({ desc = "Scroll Previous Window Up" }))
-map("n", "<C-w>d", "<C-w>p<C-d><C-w>p", opts({ desc = "Scroll Previous Window Down" }))
-
+-- special
+map("n", "<F1>", "<cmd>tabnew<CR><cmd>terminal<CR>a", opts({ desc = "Open Terminal In New Tab" }))
 map(
   "n",
   "<leader>w",

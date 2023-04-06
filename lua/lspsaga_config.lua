@@ -1,4 +1,5 @@
 local lspsaga = require("lspsaga")
+local util = require("k1.util")
 
 lspsaga.setup({
 	scroll_preview = {
@@ -21,7 +22,6 @@ lspsaga.setup({
 	},
 	lightbulb = {
 		enable = false,
-		enable_in_insert = false,
 	},
 	code_action = {
 		num_shortcut = false,
@@ -31,14 +31,9 @@ lspsaga.setup({
 	},
 })
 
-vim.keymap.set("n", "<C-]>", "<cmd>Lspsaga lsp_finder<CR>")
-vim.keymap.set("n", "<F2>", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-vim.keymap.set("n", "<leader><F2>", "<cmd>Lspsaga show_buf_diagnostics<CR>")
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
-
-local wk = require("which-key")
-wk.register({
-	y = { "<cmd>Lspsaga goto_type_definition<CR>", "Go To Type Definition" },
-	d = { "<cmd>Lspsaga goto_definition<CR>", "Go To Definition" },
-}, { prefix = "g" })
+local keymap = {
+  {"n", "<F2>", "<cmd>Lspsaga diagnostic_jump_next<CR>", util.opts({})},
+  {"n", "K", "<cmd>Lspsaga hover_doc<CR>", util.opts({})},
+  {"n", "<leader>o", "<cmd>Lspsaga outline<CR>", util.opts({})},
+}
+util.map_with_dicts(keymap)

@@ -46,7 +46,4 @@ local keymap = {
   { "n", "<leader>n", "<cmd>NvimTreeToggle<CR>",                         util.opts({ desc = "NvimTree Toggle" }) },
   { "n", "<leader>l", "<cmd>NvimTreeFindFile<CR><cmd>NvimTreeFocus<CR>", util.opts({ desc = "NvimTree Find File" }) },
 }
-
-for _, mapping in ipairs(keymap) do
-  util.map(mapping[1], mapping[2], mapping[3], mapping[4])
-end
+util.map_with_dicts(keymap)

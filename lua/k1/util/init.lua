@@ -3,10 +3,17 @@ local map = vim.api.nvim_set_keymap
 local unmap = vim.api.nvim_del_keymap
 local unmap_buffer = vim.api.nvim_buf_del_keymap
 
+local _opt = { noremap = true, nowait = true, silent = true }
 --- @param opt? table<string, any>
 local function opts(opt)
-  local _opt = { noremap = true, nowait = true, silent = true }
   return vim.tbl_extend("keep", opt, _opt)
+end
+
+--- @param dicts table<table<string>>
+local function map_with_dicts(dicts)
+  for _, dict in ipairs(dicts) do
+    map(dict[1], dict[2], dict[3], dict[4])
+  end
 end
 
 --- @param mode string
@@ -56,6 +63,7 @@ end
 ---@diagnostic disable-next-line: lowercase-global
 util = {
   map = map,
+  map_with_dicts = map_with_dicts,
   unmap = unmap,
   unmap_buffer = unmap_buffer,
   opts = opts,
