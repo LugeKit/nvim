@@ -1,12 +1,14 @@
 local wk = require("which-key")
 local builtin = require("telescope.builtin")
+local action = require("telescope.actions")
 
 require("telescope").setup({
   defaults = {
     mappings = {
       i = {
-        ["<C-j>"] = require("telescope.actions").move_selection_next,
-        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+        ["<C-j>"] = action.move_selection_next,
+        ["<C-k>"] = action.move_selection_previous,
+        ["<Esc>"] = action.close,
       },
     },
   },

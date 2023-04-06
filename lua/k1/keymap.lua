@@ -27,8 +27,6 @@ map("n", "<C-h>", "^", opts({}))
 map("v", "<C-h>", "^", opts({}))
 map("n", "<C-l>", "$", opts({}))
 map("v", "<C-l>", "$", opts({}))
-map("c", "<C-h>", "<C-left>", opts({}))
-map("c", "<C-l>", "<C-right>", opts({}))
 
 -- paste
 map("c", "<C-v>", '<C-r>"', opts({}))
