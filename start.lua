@@ -95,6 +95,9 @@ require("lazy").setup({
 
   -- ui enhancement
   "stevearc/dressing.nvim",
+
+  -- floating terminal
+  "voldikss/vim-floaterm",
 })
 
 -- user configs
@@ -116,3 +119,4 @@ require("nvim-autopairs").setup({})
 require("treesitter_config")
 require("lsp_config")
 require("dressing_config")
+require("floaterm_config")

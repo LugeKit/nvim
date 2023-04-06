@@ -29,8 +29,8 @@ map("n", "<C-l>", "$", opts({}))
 map("v", "<C-l>", "$", opts({}))
 
 -- paste
-map("c", "<C-v>", '<C-r>"', opts({}))
-map("i", "<C-v>", '<C-r>"', opts({}))
+map("c", "<C-v>", '<C-r>*', opts({}))
+map("i", "<C-v>", '<C-r>*', opts({}))
 
 -- surroud visual selected
 map("v", '"', '<ESC>`<v`><ESC>a"<ESC>`<i"<ESC>`>2l', opts({}))
@@ -43,7 +43,6 @@ map("v", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
 map("t", "<ESC>", "<C-\\><C-n>", opts({}))
 
 -- special
-map("n", "<F1>", "<cmd>tabnew<CR><cmd>terminal<CR>a", opts({ desc = "Open Terminal In New Tab" }))
 map("n","<leader>w", window.toggle_window_resize_mode, opts({ desc = "Toggle Window Mode" }))
 
 -- better navigate
