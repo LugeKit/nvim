@@ -6,5 +6,5 @@ lsp_signature.setup({
     border = "single",
   },
   hint_enable = false,
-  toggle_key = "<C-p>",
+  toggle_key = nil, -- disable toggle key, because it will conflict with other key mappings
 })

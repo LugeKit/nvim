@@ -61,6 +61,14 @@ local function inspect(arg)
   vim.cmd([[messages]])
 end
 
+---@param prompt string
+---@param callback function ((string|nil) -> ())
+local function require_input_with_ui(prompt, callback)
+  return vim.ui.input({
+    prompt = prompt,
+  }, callback)
+end
+
 ---@diagnostic disable-next-line: lowercase-global
 util = {
   map = map,
@@ -71,6 +79,7 @@ util = {
   restore_mappings = restore_mappings,
   save_mappings = save_mappings,
   inspect = inspect,
+  require_input_with_ui = require_input_with_ui,
 }
 
 return util

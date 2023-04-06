@@ -1,6 +1,7 @@
 local wk = require("which-key")
 local builtin = require("telescope.builtin")
 local action = require("telescope.actions")
+local util = require("k1.util")
 
 require("telescope").setup({
   defaults = {
@@ -16,22 +17,24 @@ require("telescope").setup({
 
 local function call_with_glob(callback)
   return function()
-    vim.ui.input({
-      prompt = "Please enter glob: ",
-    }, callback)
+    util.require_input_with_ui("File Pattern", callback)
   end
 end
 
 local function live_grep_glob(input)
-  builtin.live_grep({
-    glob_pattern = input,
-  })
+  if input and string.len(input) > 0 then
+    builtin.live_grep({
+      glob_pattern = input,
+    })
+  end
 end
 
 local function find_files_glob(input)
-  builtin.find_files({
-    glob_pattern = input,
-  })
+  if input and string.len(input) > 0 then
+    builtin.find_files({
+      glob_pattern = input,
+    })
+  end
 end
 
 local function find_references()
@@ -56,8 +59,6 @@ wk.register({
     a = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Dynamic Symbols" },
     s = { "<cmd>Telescope live_grep<CR>", "Live Grep" },
     S = { call_with_glob(live_grep_glob), "Live Grep(Glob)" },
-    d = { "<cmd>Telescope lsp_definitions<CR>", "Go To Definition" },
-    D = { "<cmd>Telescope lsp_type_definitions<CR>", "Go To Type Definition" },
     i = { find_implementations, "Find Implementations" },
     r = { find_references, "Find References" },
   },

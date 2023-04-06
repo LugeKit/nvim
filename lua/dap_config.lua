@@ -1,6 +1,7 @@
 local dapui = require("dapui")
 local wk = require("which-key")
 local dap = require("dap")
+local util = require("k1.util")
 
 -- language configuration
 require("dap-go").setup({})
@@ -29,16 +30,8 @@ local function reset_current_layout()
   end
 end
 
----@param prompt string
----@param callback function ((string|nil) -> ())
-local function require_input(prompt, callback)
-  return vim.ui.input({
-    prompt = prompt,
-  }, callback)
-end
-
 local function dapui_eval()
-  require_input("Evaluate", function(input)
+  util.require_input_with_ui("Evaluate", function(input)
     if input and string.len(input) > 0 then
       dapui.eval(input)
     end
@@ -46,7 +39,7 @@ local function dapui_eval()
 end
 
 local function dapui_watch_add()
-  require_input("Watch", function(input)
+  util.require_input_with_ui("Watch", function(input)
     if input and string.len(input) > 0 then
       dapui.elements.watches.add(input)
     end
