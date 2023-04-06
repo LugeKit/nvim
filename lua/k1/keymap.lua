@@ -1,25 +1,19 @@
-local wk = require("which-key")
 local util = require("k1.util")
 local window = require("k1.window")
-
-wk.register({
-  ["1"] = { "1gt", "Tab 1" },
-  ["2"] = { "2gt", "Tab 2" },
-  ["3"] = { "3gt", "Tab 3" },
-  ["4"] = { "4gt", "Tab 4" },
-  ["5"] = { "5gt", "Tab 5" },
-  ["6"] = { "6gt", "Tab 6" },
-  ["7"] = { "7gt", "Tab 7" },
-  ["<TAB>"] = { "gt", "Next Tab" },
-  ["<S-TAB>"] = { "gT", "Previous Tab" },
-  t = { "<cmd>tabnew<CR>", "New Tab" },
-  ["<BS>"] = { "<cmd>bd<CR>", "Delete Current Buffer" },
-}, {
-  prefix = "<leader>",
-})
-
 local map = util.map
 local opts = util.opts
+
+-- tabs
+map("n", "<leader>1", "1gt", opts({}))
+map("n", "<leader>2", "2gt", opts({}))
+map("n", "<leader>3", "3gt", opts({}))
+map("n", "<leader>4", "4gt", opts({}))
+map("n", "<leader>5", "5gt", opts({}))
+map("n", "<leader>6", "6gt", opts({}))
+map("n", "<leader>7", "7gt", opts({}))
+map("n", "<leader><TAB>", "gt", opts({desc = "Next Tab"}))
+map("n", "<leader><S-TAB>", "gT", opts({desc = "Previous Tab"}))
+map("n", "<leader>t", "<cmd>tabnew<CR>", opts({desc = "New Tab"}))
 
 -- disable highlight with <ESC>, this is probably the best way
 map("", "<ESC>", "<ESC><cmd>silent noh<CR>", opts({}))
@@ -52,12 +46,4 @@ map("t", "<ESC>", "<C-\\><C-n>", opts({}))
 
 -- special
 map("n", "<F1>", "<cmd>tabnew<CR><cmd>terminal<CR>a", opts({ desc = "Open Terminal In New Tab" }))
-map(
-  "n",
-  "<leader>w",
-  "",
-  opts({
-    desc = "Toggle Window Mode",
-    callback = window.toggle_window_resize_mode,
-  })
-)
+map("n","<leader>w", window.toggle_window_resize_mode, opts({desc = "Toggle Window Mode"}))

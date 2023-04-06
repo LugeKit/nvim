@@ -1,15 +1,16 @@
 ---@diagnostic disable: param-type-mismatch, undefined-field
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 local unmap = vim.api.nvim_del_keymap
 local unmap_buffer = vim.api.nvim_buf_del_keymap
 
 local _opt = { noremap = true, nowait = true, silent = true }
 --- @param opt? table<string, any>
 local function opts(opt)
+  opt = opt or {}
   return vim.tbl_extend("keep", opt, _opt)
 end
 
---- @param dicts table<table<string>>
+--- @param dicts table<table<any>> sth. like: {{"n", "o", "<cmd>hello world<cr>", {}}}
 local function map_with_dicts(dicts)
   for _, dict in ipairs(dicts) do
     map(dict[1], dict[2], dict[3], dict[4])
