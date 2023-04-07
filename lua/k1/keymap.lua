@@ -51,7 +51,7 @@ map("n", "<C-o>", "<C-o>zz", opts())
 map("n", "<C-i>", "<C-i>zz", opts())
 
 -- better search
-map("n", "/", "/\v", opts())
+map("n", "/", "/\\v", opts())
 
 local function test()
   vim.ui.input({
