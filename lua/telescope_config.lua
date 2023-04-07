@@ -41,13 +41,15 @@ local function find_references()
   builtin.lsp_references({
     include_declaration = false,
     include_current_line = true,
-    show_line = false,
+    fname_width = 100,
+    show_line = true,
   })
 end
 
 local function find_implementations()
   builtin.lsp_implementations({
-    show_line = false,
+    fname_width = 100,
+    show_line = true,
   })
 end
 
