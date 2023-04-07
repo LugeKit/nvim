@@ -19,7 +19,7 @@ cmp.setup({
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
-  mapping = cmp.mapping.preset.insert({
+  mapping = {
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-j>"] = cmp.mapping(function(fallback)
@@ -70,7 +70,7 @@ cmp.setup({
         end
       end,
     }),
-  }),
+  },
   sources = cmp.config.sources({
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
