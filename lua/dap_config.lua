@@ -33,7 +33,9 @@ end
 
 local function dapui_action(prompt, callback)
   return function()
-    util.require_input_with_ui(prompt, function(input)
+    vim.ui.input({
+      prompt = prompt,
+    }, function(input)
       if input and string.len(input) > 0 then
         callback(input)
       end

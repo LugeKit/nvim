@@ -31,6 +31,7 @@ map("v", "<C-l>", "$", opts())
 -- paste
 map("c", "<C-v>", "<C-r>+", opts())
 map("i", "<C-v>", "<C-r>+", opts())
+map("i", "<C-z>", "<Esc>zzgi", opts())
 
 -- surroud visual selected
 map("v", '"', '<ESC>`<v`><ESC>a"<ESC>`<i"<ESC>`>2l', opts())
@@ -51,3 +52,13 @@ map("n", "<C-i>", "<C-i>zz", opts())
 
 -- better search
 map("n", "/", "/\v", opts())
+
+local function test()
+  vim.ui.input({
+    prompt = "test",
+    completion = "command",
+  }, function(input)
+    print(input)
+  end)
+end
+map("n", "<leader>k", test, opts())

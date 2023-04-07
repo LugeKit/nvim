@@ -62,14 +62,6 @@ util.inspect = function(arg)
   vim.cmd([[messages]])
 end
 
----@param prompt string
----@param callback function ((string|nil) -> ())
-util.require_input_with_ui = function(prompt, callback)
-  return vim.ui.input({
-    prompt = prompt,
-  }, callback)
-end
-
 ---@return string text of the visual selected
 util.get_visual_selected = function()
   local a_orig = vim.fn.getreg("a")
