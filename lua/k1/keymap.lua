@@ -29,8 +29,8 @@ map("n", "<C-l>", "$", opts())
 map("v", "<C-l>", "$", opts())
 
 -- paste
-map("c", "<C-v>", "<C-r>*", opts())
-map("i", "<C-v>", "<C-r>*", opts())
+map("c", "<C-v>", "<C-r>+", opts())
+map("i", "<C-v>", "<C-r>+", opts())
 
 -- surroud visual selected
 map("v", '"', '<ESC>`<v`><ESC>a"<ESC>`<i"<ESC>`>2l', opts())
