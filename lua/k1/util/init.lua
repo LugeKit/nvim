@@ -1,25 +1,26 @@
----@diagnostic disable: param-type-mismatch, undefined-field
-local map = vim.keymap.set
-local unmap = vim.api.nvim_del_keymap
-local unmap_buffer = vim.api.nvim_buf_del_keymap
+---@diagnostic disable-next-line: lowercase-global
+util = {}
+util.unmap = vim.api.nvim_del_keymap
+util.unmap_buffer = vim.api.nvim_buf_del_keymap
+util.map = vim.keymap.set
 
 local _opt = { noremap = true, nowait = true, silent = true }
 --- @param opt? table<string, any>
-local function opts(opt)
+util.opts = function(opt)
   opt = opt or {}
   return vim.tbl_extend("keep", opt, _opt)
 end
 
 --- @param dicts table<table<any>> sth. like: {{"n", "o", "<cmd>hello world<cr>", {}}}
-local function map_with_dicts(dicts)
+util.map_with_dicts = function(dicts)
   for _, dict in ipairs(dicts) do
-    map(dict[1], dict[2], dict[3], dict[4])
+    util.map(dict[1], dict[2], dict[3], dict[4])
   end
 end
 
 --- @param mode string
 --- @param mappings table<string, any>
-local function restore_mappings(mode, mappings)
+util.restore_mappings = function(mode, mappings)
   for key, value in pairs(mappings) do
     if vim.fn.empty(value) == 1 then
       util.unmap(mode, key)
@@ -33,7 +34,7 @@ end
 --- @param keys table<string, any>
 --- @param global boolean
 --- @return table<string, any>
-local function save_mappings(mode, keys, global)
+util.save_mappings = function(mode, keys, global)
   local mappings = {}
   local buffer_mappings = {}
 
@@ -56,30 +57,30 @@ local function save_mappings(mode, keys, global)
   return mappings
 end
 
-local function inspect(arg)
+util.inspect = function(arg)
   print(vim.inspect(arg))
   vim.cmd([[messages]])
 end
 
 ---@param prompt string
 ---@param callback function ((string|nil) -> ())
-local function require_input_with_ui(prompt, callback)
+util.require_input_with_ui = function(prompt, callback)
   return vim.ui.input({
     prompt = prompt,
   }, callback)
 end
 
----@diagnostic disable-next-line: lowercase-global
-util = {
-  map = map,
-  map_with_dicts = map_with_dicts,
-  unmap = unmap,
-  unmap_buffer = unmap_buffer,
-  opts = opts,
-  restore_mappings = restore_mappings,
-  save_mappings = save_mappings,
-  inspect = inspect,
-  require_input_with_ui = require_input_with_ui,
-}
+---@return string text of the visual selected
+util.get_visual_selected = function()
+  local a_orig = vim.fn.getreg("a")
+  local mode = vim.fn.mode()
+  if mode ~= "v" and mode ~= "V" then
+    return ""
+  end
+  vim.cmd([[normal! "agv]])
+  local text = vim.fn.getreg("a")
+  vim.fn.setreg("a", a_orig)
+  return text
+end
 
 return util
