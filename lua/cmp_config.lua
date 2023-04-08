@@ -14,14 +14,26 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
-  preselect = cmp.PreselectMode.None,
+  preselect = cmp.PreselectMode.Item,
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
   mapping = {
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-b>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.scroll_docs(-4)
+      else
+        fallback()
+      end
+    end, { "i" }),
+    ["<C-f>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.scroll_docs(4)
+      else
+        fallback()
+      end
+    end, { "i" }),
     ["<C-j>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -30,29 +42,35 @@ cmp.setup({
       else
         fallback()
       end
-    end, { "i", "s", "c" }),
+    end, { "i", "c" }),
     ["<C-k>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
         fallback()
       end
-    end, { "i", "s", "c" }),
+    end, { "i", "c" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
         fallback()
       end
-    end),
+    end, { "i" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
         fallback()
       end
-    end),
-    ["<C-e>"] = cmp.mapping.abort(),
+    end, { "i" }),
+    ["<C-e>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.abort()
+      else
+        fallback()
+      end
+    end, { "i", "c" }),
     ["<CR>"] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() then
@@ -61,7 +79,6 @@ cmp.setup({
           fallback()
         end
       end,
-      s = cmp.mapping.confirm({ select = true }),
       c = function(fallback)
         if cmp.visible() and cmp.get_active_entry() then
           cmp.confirm({ select = false })
@@ -72,18 +89,16 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
-    { name = "nvim_lua" },
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-  }, {
-    { name = "buffer" },
+    { name = "nvim_lsp", group_index = 1 },
+    { name = "nvim_lua", group_index = 2 },
+    { name = "luasnip",  group_index = 3 },
+    { name = "buffer",   group_index = 4 },
   }),
 })
 
 cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({
     { name = "cmp_git" },
-  }, {
     { name = "buffer" },
   }),
 })
@@ -97,7 +112,6 @@ cmp.setup.cmdline({ "", "?" }, {
 cmp.setup.cmdline(":", {
   sources = cmp.config.sources({
     { name = "path" },
-  }, {
     { name = "cmdline" },
   }),
 })
