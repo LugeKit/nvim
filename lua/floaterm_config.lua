@@ -7,3 +7,6 @@ local keymap = {
 }
 
 util.map_with_dicts(keymap)
+
+vim.g.floaterm_width = 0.8
+vim.g.floaterm_height = 0.8
