@@ -25,8 +25,10 @@ map("n", "<C-k>", "10<up>", opts())
 map("v", "<C-k>", "10<up>", opts())
 map("n", "<C-h>", "^", opts())
 map("v", "<C-h>", "^", opts())
+map("o", "<C-h>", "^", opts())
 map("n", "<C-l>", "$", opts())
 map("v", "<C-l>", "$", opts())
+map("o", "<C-l>", "$", opts())
 
 -- paste
 map("c", "<C-v>", "<C-r>+", opts())
@@ -52,6 +54,13 @@ map("n", "<C-i>", "<C-i>zz", opts())
 
 -- better search
 map("n", "/", "/\\v", opts())
+
+-- save with C-s
+map("n", "<C-s>", "<cmd>wa<CR>", opts())
+
+-- use ; to enter command line
+map("n", ";", ":", opts())
+map("n", ":", ";", opts())
 
 local function test()
   vim.ui.input({
