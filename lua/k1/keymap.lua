@@ -34,10 +34,10 @@ map("i", "<C-v>", "<C-r>+", opts())
 map("i", "<C-z>", "<Esc>zzgi", opts())
 
 -- surroud visual selected
-map("v", '"', '<ESC>`<v`><ESC>a"<ESC>`<i"<ESC>`>2l', opts())
-map("v", "'", "<ESC>`<v`><ESC>a'<ESC>`<i'<ESC>`>2l", opts())
-map("v", "(", "<ESC>`<v`><ESC>a)<ESC>`<i(<ESC>`>2l", opts())
-map("v", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts())
+map("x", '"', '<ESC>`<v`><ESC>a"<ESC>`<i"<ESC>`>2l', opts())
+map("x", "'", "<ESC>`<v`><ESC>a'<ESC>`<i'<ESC>`>2l", opts())
+map("x", "(", "<ESC>`<v`><ESC>a)<ESC>`<i(<ESC>`>2l", opts())
+map("x", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts())
 
 map("v", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
 -- <ESC> in tmode to nmode
