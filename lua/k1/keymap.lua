@@ -62,6 +62,10 @@ map("n", "<C-s>", "<cmd>wa<CR>", opts())
 map("n", ";", ":", opts())
 map("n", ":", ";", opts())
 
+-- in V mode, indent multiple times
+map("v", "<", "<gv", opts())
+map("v", ">", ">gv", opts())
+
 local function test()
   vim.ui.input({
     prompt = "test",
