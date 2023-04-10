@@ -56,7 +56,7 @@ map("n", "<C-i>", "<C-i>zz", opts())
 map("n", "/", "/\\v", opts({ silent = false }))
 
 -- save with C-s
-map("n", "<C-s>", "<cmd>wa<CR>", opts())
+map("n", "<C-s>", ":%s/\v", opts({ silent = false }))
 
 -- use ; to enter command line
 map("n", ";", ":", opts({ silent = false }))
