@@ -34,6 +34,7 @@ lspconfig.bashls.setup({
 })
 lspconfig.clangd.setup({
   capabilities = capabilities,
+  filetypes = { "c", "cpp", "objc", "objcpp" },
 })
 lspconfig.pyright.setup({
   capabilities = capabilities,
