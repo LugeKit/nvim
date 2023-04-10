@@ -53,13 +53,13 @@ map("n", "<C-o>", "<C-o>zz", opts())
 map("n", "<C-i>", "<C-i>zz", opts())
 
 -- better search
-map("n", "/", "/\\v", opts())
+map("n", "/", "/\\v", opts({ silent = false }))
 
 -- save with C-s
 map("n", "<C-s>", "<cmd>wa<CR>", opts())
 
 -- use ; to enter command line
-map("n", ";", ":", opts())
+map("n", ";", ":", opts({ silent = false }))
 map("n", ":", ";", opts())
 
 -- in V mode, indent multiple times
