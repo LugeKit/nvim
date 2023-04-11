@@ -69,4 +69,4 @@ local function test()
     print(input)
   end)
 end
-map("n", "<leader>k", test, opts())
+map("n", "<leader>K", test, opts())
