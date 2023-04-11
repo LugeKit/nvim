@@ -19,16 +19,10 @@ map("n", "<leader>t", "<cmd>tabnew<CR>", opts({ desc = "New Tab" }))
 map("", "<ESC>", "<ESC><cmd>silent noh<CR>", opts())
 
 -- movements
-map("n", "<C-j>", "10<down>", opts())
-map("v", "<C-j>", "10<down>", opts())
-map("n", "<C-k>", "10<up>", opts())
-map("v", "<C-k>", "10<up>", opts())
-map("n", "<C-h>", "^", opts())
-map("v", "<C-h>", "^", opts())
-map("o", "<C-h>", "^", opts())
-map("n", "<C-l>", "$", opts())
-map("v", "<C-l>", "$", opts())
-map("o", "<C-l>", "$", opts())
+map({ "n", "x", "o" }, "<C-j>", "10<down>", opts())
+map({ "n", "x", "o" }, "<C-k>", "10<up>", opts())
+map({ "n", "x", "o" }, "<C-h>", "^", opts())
+map({ "n", "x", "o" }, "<C-l>", "$", opts())
 
 -- paste
 map("c", "<C-v>", "<C-r>+", opts())
@@ -41,7 +35,7 @@ map("x", "'", "<ESC>`<v`><ESC>a'<ESC>`<i'<ESC>`>2l", opts())
 map("x", "(", "<ESC>`<v`><ESC>a)<ESC>`<i(<ESC>`>2l", opts())
 map("x", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts())
 
-map("v", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
+map("x", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
 -- <ESC> in tmode to nmode
 map("t", "<ESC>", "<C-\\><C-n>", opts())
 
@@ -52,14 +46,15 @@ map("n", "<leader>w", window.toggle_window_resize_mode, opts({ desc = "Toggle Wi
 map("n", "/", "/\\v", opts({ silent = false }))
 map("n", "?", "?\\v", opts({ silent = false }))
 map("n", "<C-s>", ":%s/\\v", opts({ silent = false }))
+map("x", "<C-s>", ":s/\\v", opts({ silent = false }))
 
 -- use ; to enter command line
-map("n", ";", ":", opts({ silent = false }))
-map("n", ":", ";", opts())
+map({ "n", "x" }, ";", ":", opts({ silent = false }))
+map({ "n", "x" }, ":", ";", opts())
 
 -- in V mode, indent multiple times
-map("v", "<", "<gv", opts())
-map("v", ">", ">gv", opts())
+map("x", "<", "<gv", opts())
+map("x", ">", ">gv", opts())
 
 local function test()
   vim.ui.input({
