@@ -99,7 +99,10 @@ require("lazy").setup({
   -- floating terminal
   "voldikss/vim-floaterm",
 
-  "easymotion/vim-easymotion",
+  {
+    "phaazon/hop.nvim",
+    branch = "v2",
+  },
 })
 
 -- user configs
@@ -122,4 +125,4 @@ require("treesitter_config")
 require("lsp_config")
 require("dressing_config")
 require("floaterm_config")
-require("easymotion_config")
+require("hop_config")
