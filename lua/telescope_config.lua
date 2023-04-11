@@ -41,14 +41,28 @@ local function find_references()
   builtin.lsp_references({
     include_declaration = false,
     include_current_line = true,
-    fname_width = 100,
+    fname_width = 200,
     show_line = true,
   })
 end
 
 local function find_implementations()
   builtin.lsp_implementations({
-    fname_width = 100,
+    fname_width = 200,
+    show_line = true,
+  })
+end
+
+local function outgoing_calls()
+  builtin.lsp_outgoing_calls({
+    fname_width = 200,
+    show_line = true,
+  })
+end
+
+local function incoming_calls()
+  builtin.lsp_incoming_calls({
+    fname_width = 200,
     show_line = true,
   })
 end
@@ -63,5 +77,7 @@ wk.register({
     S = { call_with_glob(live_grep_glob), "Live Grep(Glob)" },
     i = { find_implementations, "Find Implementations" },
     r = { find_references, "Find References" },
+    c = { outgoing_calls, "Outgoing Calls" },
+    C = { incoming_calls, "Incoming Calls" },
   },
 }, { prefix = "<leader>" })
