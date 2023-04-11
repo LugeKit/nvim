@@ -100,8 +100,8 @@ require("lazy").setup({
   "voldikss/vim-floaterm",
 
   {
-    "phaazon/hop.nvim",
-    branch = "v2",
+    "aznhe21/hop.nvim",
+    branch = "fix-some-bugs",
   },
 
   "ggandor/leap.nvim",
@@ -128,5 +128,5 @@ require("treesitter_config")
 require("lsp_config")
 require("dressing_config")
 require("floaterm_config")
--- require("leap_config") hard to configure, temporily not use
+-- require("leap_config") -- hard to configure, temporily not use
 require("hop_config")

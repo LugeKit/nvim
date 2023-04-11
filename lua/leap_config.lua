@@ -51,4 +51,5 @@ util.map_with_dicts(keymap)
 
 flit.setup {
   multiline = false,
+  labeled_modes = "nxo",
 }
