@@ -48,10 +48,6 @@ map("t", "<ESC>", "<C-\\><C-n>", opts())
 -- special
 map("n", "<leader>w", window.toggle_window_resize_mode, opts({ desc = "Toggle Window Mode" }))
 
--- better navigate
-map("n", "<C-o>", "<C-o>zz", opts())
-map("n", "<C-i>", "<C-i>zz", opts())
-
 -- better search
 map("n", "/", "/\\v", opts({ silent = false }))
 map("n", "?", "?\\v", opts({ silent = false }))
