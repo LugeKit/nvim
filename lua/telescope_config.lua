@@ -1,7 +1,6 @@
 local wk = require("which-key")
 local builtin = require("telescope.builtin")
 local action = require("telescope.actions")
-local util = require("k1.util")
 
 require("telescope").setup({
   defaults = {
@@ -17,7 +16,7 @@ require("telescope").setup({
 
 local function call_with_glob(callback)
   return function()
-    util.require_input_with_ui("File Pattern", callback)
+    vim.ui.input({ prompt = "File Pattern" }, callback)
   end
 end
 

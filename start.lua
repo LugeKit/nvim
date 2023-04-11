@@ -103,6 +103,9 @@ require("lazy").setup({
     "phaazon/hop.nvim",
     branch = "v2",
   },
+
+  "ggandor/leap.nvim",
+  "ggandor/flit.nvim",
 })
 
 -- user configs
@@ -125,4 +128,5 @@ require("treesitter_config")
 require("lsp_config")
 require("dressing_config")
 require("floaterm_config")
+-- require("leap_config") hard to configure, temporily not use
 require("hop_config")
