@@ -24,5 +24,11 @@ autocmd({ "FocusGained", "BufEnter" }, {
 autocmd({ "BufReadPost" }, {
   group = group,
   pattern = "*.log",
-  command = "normal G",
+  command = "normal! G",
+})
+
+autocmd({ "CursorMoved", "InsertLeave" }, {
+  group = group,
+  pattern = "*",
+  command = "normal! zz",
 })
