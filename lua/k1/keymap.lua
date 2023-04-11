@@ -25,7 +25,7 @@ map({ "n", "x", "o" }, "<C-h>", "^", opts())
 map({ "n", "x", "o" }, "<C-l>", "$", opts())
 
 -- paste
-map("c", "<C-v>", "<C-r>+", opts())
+map("c", "<C-v>", "<C-r>+", opts({ silent = false }))
 map("i", "<C-v>", "<C-r>+", opts())
 map("i", "<C-z>", "<Esc>zzgi", opts())
 
@@ -33,7 +33,6 @@ map("i", "<C-z>", "<Esc>zzgi", opts())
 map("x", '"', '<ESC>`<v`><ESC>a"<ESC>`<i"<ESC>`>2l', opts())
 map("x", "'", "<ESC>`<v`><ESC>a'<ESC>`<i'<ESC>`>2l", opts())
 map("x", "(", "<ESC>`<v`><ESC>a)<ESC>`<i(<ESC>`>2l", opts())
-map("x", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts())
 
 map("x", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
 -- <ESC> in tmode to nmode
