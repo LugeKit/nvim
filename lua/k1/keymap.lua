@@ -54,9 +54,8 @@ map("n", "<C-i>", "<C-i>zz", opts())
 
 -- better search
 map("n", "/", "/\\v", opts({ silent = false }))
-
--- save with C-s
-map("n", "<C-s>", ":%s/\v", opts({ silent = false }))
+map("n", "?", "?\\v", opts({ silent = false }))
+map("n", "<C-s>", ":%s/\\v", opts({ silent = false }))
 
 -- use ; to enter command line
 map("n", ";", ":", opts({ silent = false }))
