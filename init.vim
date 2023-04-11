@@ -19,6 +19,7 @@ set updatetime=100
 set foldmethod=indent
 set foldlevelstart=99
 set signcolumn=yes
+let loaded_matchit = 1
 
 set guifont=Jetbrains\ Mono:h11
 
