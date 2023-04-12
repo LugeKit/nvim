@@ -99,10 +99,7 @@ require("lazy").setup({
   -- floating terminal
   "voldikss/vim-floaterm",
 
-  {
-    "aznhe21/hop.nvim",
-    branch = "fix-some-bugs",
-  },
+  "aznhe21/hop.nvim",
 
   "ggandor/leap.nvim",
   "ggandor/flit.nvim",

@@ -26,7 +26,7 @@ map({ "n", "x", "o" }, "<C-l>", "$", opts())
 
 -- paste
 map("c", "<C-v>", "<C-r>+", opts({ silent = false }))
-map("i", "<C-v>", "<C-r>+", opts())
+map("i", "<C-v>", "<ESC>pgi", opts())
 map("i", "<C-z>", "<Esc>zzgi", opts())
 
 -- surroud visual selected

@@ -67,7 +67,7 @@ local keymap = {
   },
 }
 
-local keymap_v = {
+local keymap_x = {
   d = {
     name = "Debug",
     e = { "<cmd>lua require('dapui').eval()<CR>", "Evaluate" },
@@ -75,7 +75,7 @@ local keymap_v = {
 }
 
 wk.register(keymap, { prefix = "<leader>" })
-wk.register(keymap_v, { mode = "v", prefix = "<leader>" })
+wk.register(keymap_x, { mode = "x", prefix = "<leader>" })
 
 -- local keymap_k1 = {
 --   {
