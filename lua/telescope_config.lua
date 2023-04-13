@@ -78,5 +78,11 @@ wk.register({
     r = { find_references, "Find References" },
     c = { outgoing_calls, "Outgoing Calls" },
     C = { incoming_calls, "Incoming Calls" },
+    q = { "<cmd>Telescope resume<CR>", "Resume" },
+    g = {
+      name = "Git",
+      g = { "<cmd>Telescope git_status<CR>", "Git Status" },
+      f = { "<cmd>Telescope git_bcommits<CR>", "Git Diff Current File" },
+    },
   },
-}, { prefix = "<leader>" })
+}, { mode = "n", prefix = "<leader>" })

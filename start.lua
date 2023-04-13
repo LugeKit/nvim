@@ -21,15 +21,6 @@ require("lazy").setup({
   -- syntax highlight
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
 
-  -- lsp enhancement
-  {
-    "glepnir/lspsaga.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    commit = "04617d1",
-  },
   -- lsp server managment
   "williamboman/mason.nvim",
 
