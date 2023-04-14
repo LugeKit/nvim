@@ -89,9 +89,6 @@ require("lazy").setup({
   "voldikss/vim-floaterm",
 
   "aznhe21/hop.nvim",
-
-  "ggandor/leap.nvim",
-  "ggandor/flit.nvim",
 })
 
 -- user configs
