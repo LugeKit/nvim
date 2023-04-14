@@ -67,9 +67,6 @@ require("lazy").setup({
   "nvim-lualine/lualine.nvim",
   "arkav/lualine-lsp-progress",
 
-  -- highlight cursor word
-  "RRethy/vim-illuminate",
-
   -- show shortcuts in floating view
   {
     "folke/which-key.nvim",

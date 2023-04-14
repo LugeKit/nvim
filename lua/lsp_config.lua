@@ -67,3 +67,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.lsp.buf.format({ bufnr = args.buf, timeout_ms = 1000 })
   end,
 })
+
+local highlightGroup = vim.api.nvim_create_augroup("LspHighlightCursor", { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHoldI", "CursorHold" }, {
+  group = highlightGroup,
+  callback = vim.lsp.buf.document_highlight,
+})
+vim.api.nvim_create_autocmd("CursorMoved", {
+  group = highlightGroup,
+  callback = vim.lsp.buf.clear_references,
+})
