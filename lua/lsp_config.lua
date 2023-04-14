@@ -69,7 +69,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 local highlightGroup = vim.api.nvim_create_augroup("LspHighlightCursor", { clear = true })
-vim.api.nvim_create_autocmd({ "CursorHoldI", "CursorHold" }, {
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
   group = highlightGroup,
   callback = vim.lsp.buf.document_highlight,
 })
