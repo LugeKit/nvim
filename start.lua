@@ -65,6 +65,7 @@ require("lazy").setup({
 
   -- status line
   "nvim-lualine/lualine.nvim",
+  "arkav/lualine-lsp-progress",
 
   -- highlight cursor word
   "RRethy/vim-illuminate",
@@ -116,5 +117,4 @@ require("treesitter_config")
 require("lsp_config")
 require("dressing_config")
 require("floaterm_config")
--- require("leap_config") -- hard to configure, temporily not use
 require("hop_config")
