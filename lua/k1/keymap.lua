@@ -46,8 +46,8 @@ map("n", "<leader>w", window.toggle_window_resize_mode, opts({ desc = "Toggle Wi
 -- better search
 map("n", "/", "/\\v", opts({ silent = false }))
 map("n", "?", "?\\v", opts({ silent = false }))
-map("n", "<C-s>", ":%s/\\v", opts({ silent = false }))
-map("x", "<C-s>", ":s/\\v", opts({ silent = false }))
+map("n", "<leader>s", ":%s/\\v", opts({ silent = false, desc = "Substitue Globally" }))
+map("x", "<leader>s", ":s/\\v", opts({ silent = false, desc = "Substitue Selected" }))
 
 -- use ; to enter command line
 map({ "n", "x" }, ";", ":", opts({ silent = false }))
