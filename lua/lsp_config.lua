@@ -1,5 +1,4 @@
 require("language_config")
-require("lspsaga_config")
 require("cmp_config")
 local util = require("k1.util")
 -- Use LspAttach autocommand to only map the following keys
