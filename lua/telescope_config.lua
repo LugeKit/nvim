@@ -16,24 +16,31 @@ require("telescope").setup({
 
 local function call_with_glob(callback)
   return function()
-    vim.ui.input({ prompt = "File Pattern" }, callback)
+    vim.ui.input({ prompt = "File Pattern" }, function(input)
+      if input == nil or string.len(input) == 0 then
+        return
+      end
+
+      local globs = {}
+      for arg in string.gmatch(input, "%S+") do
+        table.insert(globs, arg)
+      end
+
+      callback(globs)
+    end)
   end
 end
 
-local function live_grep_glob(input)
-  if input and string.len(input) > 0 then
-    builtin.live_grep({
-      glob_pattern = input,
-    })
-  end
+local function live_grep_glob(globs)
+  builtin.live_grep({
+    glob_pattern = globs,
+  })
 end
 
-local function find_files_glob(input)
-  if input and string.len(input) > 0 then
-    builtin.find_files({
-      glob_pattern = input,
-    })
-  end
+local function find_files_glob(globs)
+  builtin.find_files({
+    glob_pattern = globs,
+  })
 end
 
 local function find_references()
