@@ -14,7 +14,7 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
-  preselect = cmp.PreselectMode.Item,
+  preselect = cmp.PreselectMode.None,
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
