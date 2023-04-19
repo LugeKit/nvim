@@ -36,7 +36,7 @@ map("x", "(", "<ESC>`<v`><ESC>a)<ESC>`<i(<ESC>`>2l", opts())
 map("x", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts())
 map("x", "{", "<ESC>`<v`><ESC>a}<ESC>`<i{<ESC>`>2l", opts())
 
--- map("x", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
+map("x", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
 -- <ESC> in tmode to nmode
 map("t", "<ESC>", "<C-\\><C-n>", opts())
 
