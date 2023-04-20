@@ -1,11 +1,24 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
+local masonlsp = require("mason-lspconfig")
+
+masonlsp.setup({
+  ensure_installed = {
+    "gopls",
+    "lua_ls",
+    "vimls",
+    "bashls",
+    "clangd",
+    "pyright",
+    "tsserver",
+    "html",
+    "cssls",
+  }
+})
+
 lspconfig.gopls.setup({
   capabilities = capabilities,
 })
--- lspconfig.golangci_lint_ls.setup{
--- 	capabilities = capabilities,
--- }
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   settings = {
@@ -38,4 +51,13 @@ lspconfig.clangd.setup({
 })
 lspconfig.pyright.setup({
   capabilities = capabilities,
+})
+lspconfig.tsserver.setup({
+  capabilities = capabilities
+})
+lspconfig.html.setup({
+  capabilities = capabilities
+})
+lspconfig.cssls.setup({
+  capabilities = capabilities
 })

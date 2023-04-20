@@ -23,6 +23,7 @@ require("lazy").setup({
 
   -- lsp server managment
   "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
 
   -- debugger
   "mfussenegger/nvim-dap",
@@ -93,6 +94,7 @@ require("lazy").setup({
 
 -- user configs
 require("mason").setup({})
+require("mason-lspconfig").setup({})
 require("neodev").setup({
   library = { plugins = { "nvim-dap-ui" }, types = true },
 }) -- before lspconfig
