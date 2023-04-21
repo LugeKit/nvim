@@ -20,6 +20,7 @@ require("lazy").setup({
 
   -- syntax highlight
   { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
+  "nvim-treesitter/nvim-treesitter-textobjects",
 
   -- lsp server managment
   "williamboman/mason.nvim",
