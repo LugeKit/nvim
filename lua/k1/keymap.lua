@@ -37,6 +37,9 @@ map("x", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts())
 map("x", "{", "<ESC>`<v`><ESC>a}<ESC>`<i{<ESC>`>2l", opts())
 
 map("x", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
+
+map("x", "/", "<ESC>/\\%>'<\\%<'>\\v", opts({ silent = false, desc = "Search In Selected" }))
+
 -- <ESC> in tmode to nmode
 map("t", "<ESC>", "<C-\\><C-n>", opts())
 
@@ -47,7 +50,8 @@ map("n", "<leader>w", window.toggle_window_resize_mode, opts({ desc = "Toggle Wi
 map("n", "/", "/\\v", opts({ silent = false }))
 map("n", "?", "?\\v", opts({ silent = false }))
 map("n", "<leader>s", ":%s/\\v", opts({ silent = false, desc = "Substitue Globally" }))
-map("x", "<leader>s", ":s/\\v", opts({ silent = false, desc = "Substitue Selected" }))
+map("x", "<leader>s", ":s/\\v", opts({ silent = false, desc = "Substitue In Selected" }))
+map("x", "<leader>s", ":g/\\v", opts({ silent = false, desc = "Globally Command Search In Selected" }))
 
 -- use ; to enter command line
 map({ "n", "x" }, ";", ":", opts({ silent = false }))
