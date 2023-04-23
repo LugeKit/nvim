@@ -51,7 +51,7 @@ map("n", "/", "/\\v", opts({ silent = false }))
 map("n", "?", "?\\v", opts({ silent = false }))
 map("n", "<leader>s", ":%s/\\v", opts({ silent = false, desc = "Substitue Globally" }))
 map("x", "<leader>s", ":s/\\v", opts({ silent = false, desc = "Substitue In Selected" }))
-map("x", "<leader>s", ":g/\\v", opts({ silent = false, desc = "Globally Command Search In Selected" }))
+map("x", "<leader>g", ":g/\\v", opts({ silent = false, desc = "Globally Command Search In Selected" }))
 
 -- use ; to enter command line
 map({ "n", "x" }, ";", ":", opts({ silent = false }))
