@@ -58,6 +58,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     }
     util.map_with_dicts(keymap)
 
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client == nil then
+      return
+    end
+
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = vim.api.nvim_create_augroup("LspFormat", { clear = true }),
       callback = function(args)
@@ -65,17 +70,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
       end,
     })
 
-    local highlightGroup = vim.api.nvim_create_augroup("LspHighlightCursor", { clear = true })
-    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-      group = highlightGroup,
-      callback = vim.lsp.buf.document_highlight,
-    })
+    if client.server_capabilities.documentHighlightProvider then
+      local highlightGroup = vim.api.nvim_create_augroup("LspHighlightCursor", { clear = true })
+      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+        group = highlightGroup,
+        callback = vim.lsp.buf.document_highlight,
+      })
 
-    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "InsertEnter" }, {
-      group = highlightGroup,
-      callback = vim.lsp.buf.clear_references,
-    })
-  end,
+      vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "InsertEnter" }, {
+        group = highlightGroup,
+        callback = vim.lsp.buf.clear_references,
+      })
+    end
+  end
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
