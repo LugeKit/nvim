@@ -15,7 +15,7 @@ local keymap = {
   },
   {
     { "n", "x", "o" },
-    "<leader><leader>f",
+    "F",
     function()
       hop.hint_char1({ direction = nil, current_line_only = false })
     end,
