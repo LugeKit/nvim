@@ -91,6 +91,10 @@ require("lazy").setup({
   "voldikss/vim-floaterm",
 
   "aznhe21/hop.nvim",
+
+  "numToStr/Comment.nvim",
+  "JoosepAlviste/nvim-ts-context-commentstring", -- helps to comment via context, e.g. comment js code in html
+
 })
 
 -- user configs
@@ -107,6 +111,7 @@ require("theme_config")
 require("nvimtree_config")
 require("gitgutter_config")
 require("vim_test_config")
+require("Comment").setup()
 require("which_key_config")
 require("null_ls_config")
 require("nvim-autopairs").setup({})
