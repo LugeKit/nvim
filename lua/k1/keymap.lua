@@ -29,13 +29,6 @@ map("c", "<C-v>", "<C-r>+", opts({ silent = false }))
 map("i", "<C-v>", "<ESC>pgi", opts())
 map("i", "<C-z>", "<Esc>zzgi", opts())
 
--- surroud visual selected
-map("x", '"', '<ESC>`<v`><ESC>a"<ESC>`<i"<ESC>`>2l', opts())
-map("x", "'", "<ESC>`<v`><ESC>a'<ESC>`<i'<ESC>`>2l", opts())
-map("x", "(", "<ESC>`<v`><ESC>a)<ESC>`<i(<ESC>`>2l", opts())
-map("x", "[", "<ESC>`<v`><ESC>a]<ESC>`<i[<ESC>`>2l", opts())
-map("x", "{", "<ESC>`<v`><ESC>a}<ESC>`<i{<ESC>`>2l", opts())
-
 map("x", "y", "y`>0", opts({ desc = "Jump To End After Yank" }))
 
 map("x", "/", "<ESC>/\\%>'<\\%<'>\\v", opts({ silent = false, desc = "Search In Selected" }))

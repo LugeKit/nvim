@@ -83,6 +83,7 @@ require("lazy").setup({
 
   -- pair helper, auto complete pairs
   "windwp/nvim-autopairs",
+  "windwp/nvim-ts-autotag",
 
   -- ui enhancement
   "stevearc/dressing.nvim",
@@ -90,11 +91,18 @@ require("lazy").setup({
   -- floating terminal
   "voldikss/vim-floaterm",
 
+  -- jump to anywhere
   "aznhe21/hop.nvim",
 
+  -- helps to comment via context, e.g. comment js code in html
   "numToStr/Comment.nvim",
-  "JoosepAlviste/nvim-ts-context-commentstring", -- helps to comment via context, e.g. comment js code in html
+  "JoosepAlviste/nvim-ts-context-commentstring",
 
+  -- surround strings
+  "tpope/vim-surround",
+
+  -- better repeat
+  "tpope/vim-repeat",
 })
 
 -- user configs
@@ -115,6 +123,7 @@ require("Comment").setup()
 require("which_key_config")
 require("null_ls_config")
 require("nvim-autopairs").setup({})
+require("nvim-ts-autotag").setup({})
 require("treesitter_config")
 require("lsp_config")
 require("dressing_config")
