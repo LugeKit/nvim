@@ -46,9 +46,8 @@ map("n", "<leader>s", ":%s/\\v", opts({ silent = false, desc = "Substitue Global
 map("x", "<leader>s", ":s/\\v", opts({ silent = false, desc = "Substitue In Selected" }))
 map("x", "<leader>g", ":g/\\v", opts({ silent = false, desc = "Globally Command Search In Selected" }))
 
--- use ; to enter command line
-map({ "n", "x" }, ";", ":", opts({ silent = false }))
-map({ "n", "x" }, ":", ";", opts())
+-- use ` to enter command line, for we can use ' as `, no need to remain `
+map({ "n", "x" }, "`", ":", opts({ silent = false }))
 
 -- in V mode, indent multiple times
 map("x", "<", "<gv", opts())
