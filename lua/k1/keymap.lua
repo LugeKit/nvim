@@ -54,6 +54,9 @@ map({ "n", "x" }, ":", ";", opts())
 map("x", "<", "<gv", opts())
 map("x", ">", ">gv", opts())
 
+-- use tab to trigger search, which is much better than /
+map({ "n", "x" }, "<Tab>", "/", opts({ silent = false }))
+
 local function test()
   vim.ui.input({
     prompt = "test",
