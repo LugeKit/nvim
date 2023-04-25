@@ -18,6 +18,11 @@ masonlsp.setup({
 
 lspconfig.gopls.setup({
   capabilities = capabilities,
+  settings = {
+    gopls = {
+      gofumpt = true,
+    }
+  }
 })
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
