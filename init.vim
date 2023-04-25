@@ -20,6 +20,7 @@ set updatetime=100
 set foldmethod=indent
 set foldlevelstart=99
 set signcolumn=yes
+set formatoptions-=o
 
 " for neovide
 set guifont=Jetbrains\ Mono:h11
