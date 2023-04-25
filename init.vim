@@ -21,6 +21,7 @@ set foldmethod=indent
 set foldlevelstart=99
 set signcolumn=yes
 set formatoptions-=o
+set formatoptions+=r
 
 " for neovide
 set guifont=Jetbrains\ Mono:h11
