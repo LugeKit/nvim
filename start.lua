@@ -2,114 +2,118 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 ---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 
 ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "neovim/nvim-lspconfig",
+	"neovim/nvim-lspconfig",
 
-  -- syntax highlight
-  { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
-  "nvim-treesitter/nvim-treesitter-textobjects",
+	-- syntax highlight
+	{ "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
+	"nvim-treesitter/nvim-treesitter-textobjects",
 
-  -- lsp server managment
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
+	-- lsp server managment
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
 
-  -- debugger
-  "mfussenegger/nvim-dap",
-  "leoluz/nvim-dap-go",
-  "rcarriga/nvim-dap-ui",
+	-- debugger
+	"mfussenegger/nvim-dap",
+	"leoluz/nvim-dap-go",
+	"rcarriga/nvim-dap-ui",
 
-  -- test helper, one command to run test
-  "vim-test/vim-test",
+	-- test helper, one command to run test
+	"vim-test/vim-test",
 
-  -- all about auto completion
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-cmdline",
-  "hrsh7th/cmp-nvim-lua",
-  "hrsh7th/nvim-cmp",
-  "ray-x/lsp_signature.nvim",
-  "folke/neodev.nvim",
+	-- all about auto completion
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/cmp-nvim-lua",
+	"hrsh7th/nvim-cmp",
+	"ray-x/lsp_signature.nvim",
+	"folke/neodev.nvim",
 
-  -- snippets for expand completion and more
-  "L3MON4D3/LuaSnip",
+	-- snippets for expand completion and more
+	"L3MON4D3/LuaSnip",
 
-  -- automated tags
-  "weilbith/nvim-lsp-smag",
+	-- automated tags
+	"weilbith/nvim-lsp-smag",
 
-  "folke/tokyonight.nvim",
-  "nvim-tree/nvim-tree.lua",
-  "nvim-tree/nvim-web-devicons",
+	"folke/tokyonight.nvim",
+	"nvim-tree/nvim-tree.lua",
+	"nvim-tree/nvim-web-devicons",
 
-  -- git enhancement
-  "airblade/vim-gitgutter",
-  "tpope/vim-fugitive",
+	-- git enhancement
+	"airblade/vim-gitgutter",
+	"tpope/vim-fugitive",
 
-  -- finder
-  {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
+	-- finder
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.1",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 
-  -- status line
-  "nvim-lualine/lualine.nvim",
-  "arkav/lualine-lsp-progress",
+	-- status line
+	"nvim-lualine/lualine.nvim",
+	"arkav/lualine-lsp-progress",
 
-  -- show shortcuts in floating view
-  {
-    "folke/which-key.nvim",
-    config = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 600
-      require("which-key").setup({})
-    end,
-  },
-  -- lsp linter, dignostics, formatter and more
-  "jose-elias-alvarez/null-ls.nvim",
+	-- show shortcuts in floating view
+	{
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 600
+			require("which-key").setup({})
+		end,
+	},
+	-- lsp linter, dignostics, formatter and more
+	"jose-elias-alvarez/null-ls.nvim",
 
-  -- pair helper, auto complete pairs
-  "windwp/nvim-autopairs",
-  "windwp/nvim-ts-autotag",
+	-- pair helper, auto complete pairs
+	"windwp/nvim-autopairs",
+	"windwp/nvim-ts-autotag",
 
-  -- ui enhancement
-  "stevearc/dressing.nvim",
+	-- ui enhancement
+	"stevearc/dressing.nvim",
 
-  -- floating terminal
-  "voldikss/vim-floaterm",
+	-- floating terminal
+	"voldikss/vim-floaterm",
 
-  -- jump to anywhere
-  "aznhe21/hop.nvim",
+	-- jump to anywhere
+	"aznhe21/hop.nvim",
 
-  -- helps to comment via context, e.g. comment js code in html
-  "numToStr/Comment.nvim",
-  "JoosepAlviste/nvim-ts-context-commentstring",
+	-- helps to comment via context, e.g. comment js code in html
+	"numToStr/Comment.nvim",
+	"JoosepAlviste/nvim-ts-context-commentstring",
 
-  -- surround strings
-  "tpope/vim-surround",
+	-- surround strings
+	"tpope/vim-surround",
 
-  -- better repeat
-  "tpope/vim-repeat",
+	-- better repeat
+	"tpope/vim-repeat",
+
+	-- cursor word highlight
+	"RRethy/vim-illuminate",
 })
 
 -- user configs
+vim.g.Illuminate_useDeprecated = 1 -- nvim spcified
 require("mason").setup({})
 require("mason-lspconfig").setup({})
 require("neodev").setup({
-  library = { plugins = { "nvim-dap-ui" }, types = true },
+	library = { plugins = { "nvim-dap-ui" }, types = true },
 }) -- before lspconfig
 require("k1").setup()
 require("lualine_config")
