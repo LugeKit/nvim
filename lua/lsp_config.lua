@@ -66,7 +66,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = vim.api.nvim_create_augroup("LspFormat", { clear = true }),
       callback = function(args)
-        vim.lsp.buf.format({ bufnr = args.buf, timeout_ms = 1000 })
+        vim.lsp.buf.format({
+          bufnr = args.buf,
+          timeout_ms = 1000,
+          filter = function(c)
+            return c.name == "null-ls"
+          end,
+        })
       end,
     })
 

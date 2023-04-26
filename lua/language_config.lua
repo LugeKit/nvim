@@ -3,26 +3,11 @@ local lspconfig = require("lspconfig")
 local masonlsp = require("mason-lspconfig")
 
 masonlsp.setup({
-  ensure_installed = {
-    "gopls",
-    "lua_ls",
-    "vimls",
-    "bashls",
-    "clangd",
-    "pyright",
-    "tsserver",
-    "html",
-    "cssls",
-  }
+  automatic_installation = true,
 })
 
 lspconfig.gopls.setup({
   capabilities = capabilities,
-  settings = {
-    gopls = {
-      gofumpt = true,
-    }
-  }
 })
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
