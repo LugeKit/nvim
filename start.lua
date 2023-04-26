@@ -106,6 +106,9 @@ require("lazy").setup({
 
 	-- cursor word highlight
 	"RRethy/vim-illuminate",
+
+	-- show colors
+	"norcalli/nvim-colorizer.lua",
 })
 
 -- user configs
@@ -115,6 +118,12 @@ require("mason-lspconfig").setup({})
 require("neodev").setup({
 	library = { plugins = { "nvim-dap-ui" }, types = true },
 }) -- before lspconfig
+require("colorizer").setup({
+	"css",
+	"html",
+	"javascript",
+	"typescript",
+})
 require("k1").setup()
 require("lualine_config")
 require("dap_config")

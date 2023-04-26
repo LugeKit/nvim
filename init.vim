@@ -20,8 +20,11 @@ set updatetime=100
 set foldmethod=indent
 set foldlevelstart=99
 set signcolumn=yes
-set formatoptions-=o
-set formatoptions+=r
+
+" Disable auto insert commentstring when pressing o in a comment line.
+" Auto insert commentstring when pressing <Enter> in insert mode in a comment
+" line.
+au BufEnter * set fo-=o fo+=r
 
 " for neovide
 set guifont=Jetbrains\ Mono:h11
