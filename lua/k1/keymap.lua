@@ -59,12 +59,15 @@ map({ "n", "x" }, "<Tab>", "/", opts({ silent = false, remap = true }))
 map({ "n", "x" }, "<S-Tab>", "?", opts({ silent = false, remap = true }))
 map({ "n", "x" }, "<C-i>", "<Tab>", opts())
 
+-- <C-h> to delete "", (), ...
+map("i", "<C-h>", "<BS>", opts({ remap = true }))
+
 local function test()
-  vim.ui.input({
-    prompt = "test",
-    completion = "command",
-  }, function(input)
-    print(input)
-  end)
+	vim.ui.input({
+		prompt = "test",
+		completion = "command",
+	}, function(input)
+		print(input)
+	end)
 end
 map("n", "<leader>K", test, opts())
