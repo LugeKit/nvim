@@ -59,11 +59,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		}
 		util.map_with_dicts(keymap)
 
-		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-		if client == nil then
-			return
-		end
-
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = vim.api.nvim_create_augroup("LspFormat", { clear = true }),
 			callback = function(args)
