@@ -58,19 +58,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			},
 		}
 		util.map_with_dicts(keymap)
-
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = vim.api.nvim_create_augroup("LspFormat", { clear = true }),
-			callback = function(args)
-				vim.lsp.buf.format({
-					bufnr = args.buf,
-					timeout_ms = 1000,
-					filter = function(c)
-						return c.name == "null-ls"
-					end,
-				})
-			end,
-		})
 	end,
 })
 
