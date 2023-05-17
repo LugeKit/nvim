@@ -45,7 +45,7 @@ require("lazy").setup({
 	"folke/neodev.nvim",
 
 	-- snippets for expand completion and more
-	"L3MON4D3/LuaSnip",
+	{ "L3MON4D3/LuaSnip", build = "make install_jsregexp", dependencies = { "rafamadriz/friendly-snippets" } },
 
 	-- automated tags
 	"weilbith/nvim-lsp-smag",
