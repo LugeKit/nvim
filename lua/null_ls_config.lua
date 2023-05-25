@@ -9,7 +9,8 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.tidy,
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua.with({}),
-		null_ls.builtins.formatting.gofumpt.with({}),
+		-- null_ls.builtins.formatting.gofumpt.with({}),
+		null_ls.builtins.formatting.gofmt.with({}),
 		null_ls.builtins.formatting.clang_format.with({
 			filetypes = { "proto" },
 		}),
